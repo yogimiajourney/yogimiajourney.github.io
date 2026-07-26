@@ -131,7 +131,6 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* Form Input Wacana */
     .wacana-input-group {
       display: flex;
       gap: 12px;
@@ -179,7 +178,6 @@
       background: #f0c4c8;
     }
 
-    /* List Item Wacana */
     .list {
       display: flex;
       flex-direction: column;
@@ -427,7 +425,7 @@
       </form>
 
       <div class="list" id="wacana-container">
-        <div class="empty-state">Memuat wacana... ⏳</div>
+        <div class="empty-state">Belum ada wacana nih. Tulis ide jalan/nongkrong pertama kalian di atas! ✨</div>
       </div>
 
       <div class="progress">
@@ -479,12 +477,11 @@
     Made with ✨ by Yogi
   </footer>
 
-  <!-- Firebase Web SDK (v10) -->
+  <!-- Firebase JavaScript SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    // Konfigurasi Firebase dari Yogi
     const firebaseConfig = {
       apiKey: "AIzaSyCmD4pyHzbDrW2i0Oj8y07pxF2KaTT0kCk",
       authDomain: "yogi-mia-journey.firebaseapp.com",
@@ -495,28 +492,24 @@
       appId: "1:329279007926:web:1453665f5df71dbd090a17"
     };
 
-    // Initialize Firebase & Realtime Database
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const wacanaRef = ref(db, 'wacana');
 
-    // DOM Elements
     const form = document.getElementById("wacana-form");
     const input = document.getElementById("wacana-input");
     const container = document.getElementById("wacana-container");
     const bar = document.getElementById("bar");
     const percent = document.getElementById("percent");
 
-    let currentWacanaData = {};
-
-    // 1. Dengar perubahan data secara Real-time dari Firebase
+    // Realtime Listener
     onValue(wacanaRef, (snapshot) => {
-      const data = snapshot.val();
-      currentWacanaData = data || {};
-      renderList(currentWacanaData);
+      const data = snapshot.val() || {};
+      renderList(data);
+    }, (error) => {
+      console.error("Firebase Error: ", error);
     });
 
-    // 2. Render List ke Layar
     function renderList(dataObj) {
       container.innerHTML = "";
       const keys = Object.keys(dataObj);
@@ -550,16 +543,13 @@
         container.appendChild(itemEl);
       });
 
-      // Event listener buat Checkbox
       document.querySelectorAll('.wacana-checkbox').forEach(cb => {
         cb.addEventListener('change', (e) => {
           const id = e.target.getAttribute('data-id');
-          const isDone = e.target.checked;
-          update(ref(db, `wacana/${id}`), { done: isDone });
+          update(ref(db, `wacana/${id}`), { done: e.target.checked });
         });
       });
 
-      // Event listener buat Tombol Hapus
       document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           const id = e.target.getAttribute('data-id');
@@ -570,7 +560,6 @@
       updateProgress(completedCount, keys.length);
     }
 
-    // 3. Tambah Wacana Baru ke Firebase
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const text = input.value.trim();
@@ -584,7 +573,6 @@
       }
     });
 
-    // 4. Update Progress Bar
     function updateProgress(completed, total) {
       if (total === 0) {
         bar.style.width = "0%";
@@ -599,7 +587,6 @@
   </script>
 
   <script>
-    // Quotes Kasual & Playful
     const quotes = [
       "Every memory begins with a simple hello.",
       "Good conversations & great coffee.",
@@ -609,12 +596,11 @@
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-    // Image Upload Handlers (Tetap tersimpan di HP masing-masing)
-    function triggerUpload(index) {
+    window.triggerUpload = function(index) {
       document.getElementById(`input-${index}`).click();
-    }
+    };
 
-    function handleImage(event, index) {
+    window.handleImage = function(event, index) {
       const file = event.target.files[0];
       if (!file) return;
 
@@ -630,7 +616,7 @@
         localStorage.setItem(`gallery_image_${index}`, e.target.result);
       };
       reader.readAsDataURL(file);
-    }
+    };
 
     window.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < 4; i++) {
