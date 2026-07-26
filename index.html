@@ -15,6 +15,7 @@
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -22,27 +23,29 @@
       background: #0F172A;
       color: #FFFFFF;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 8%;
+      padding: 18px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.8);
       z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     nav a {
@@ -50,72 +53,81 @@
       text-decoration: none;
       margin-left: 24px;
       opacity: 0.8;
-      transition: opacity 0.2s ease;
+      font-size: 15px;
+      transition: all 0.2s ease;
     }
 
     nav a:hover {
       opacity: 1;
+      color: #E8B4B8;
     }
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
-      background: radial-gradient(circle at top, #27374D, #0F172A);
+      padding: 100px 20px 60px;
+      background: radial-gradient(circle at 50% 20%, #27374D 0%, #0F172A 70%);
     }
 
     .hero h1 {
-      font-size: 64px;
+      font-size: 60px;
       font-family: 'Playfair Display', serif;
       margin-bottom: 16px;
       line-height: 1.2;
+      background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      font-size: 20px;
-      opacity: 0.8;
-      margin-bottom: 32px;
-      max-width: 600px;
+      font-size: 19px;
+      opacity: 0.85;
+      margin-bottom: 36px;
+      max-width: 550px;
       margin-left: auto;
       margin-right: auto;
+      font-weight: 300;
     }
 
     .btn {
       display: inline-block;
-      padding: 16px 36px;
+      padding: 15px 36px;
       background: #E8B4B8;
       color: #111111;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 10px 25px -5px rgba(232, 180, 184, 0.3);
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
       transform: translateY(-3px);
       background: #f0c4c8;
+      box-shadow: 0 15px 30px -5px rgba(232, 180, 184, 0.4);
     }
 
     section {
-      padding: 100px 8%;
+      padding: 90px 8%;
     }
 
     .title {
-      font-size: 38px;
+      font-size: 34px;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     /* Form Input Wacana */
@@ -127,19 +139,21 @@
 
     .wacana-input-group input[type="text"] {
       flex: 1;
-      padding: 14px 20px;
+      padding: 14px 22px;
       border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
       color: #FFF;
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .wacana-input-group input[type="text"]:focus {
       border-color: #E8B4B8;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 15px rgba(232, 180, 184, 0.2);
     }
 
     .wacana-input-group button {
@@ -151,7 +165,8 @@
       font-weight: 600;
       font-family: 'Poppins', sans-serif;
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(232, 180, 184, 0.2);
     }
 
     .wacana-input-group button:hover {
@@ -163,7 +178,7 @@
     .list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .wacana-item {
@@ -171,21 +186,22 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .wacana-item:hover {
       background: rgba(255, 255, 255, 0.07);
+      transform: translateX(4px);
     }
 
     .wacana-label {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 18px;
+      gap: 14px;
+      font-size: 16px;
       cursor: pointer;
       user-select: none;
       flex: 1;
@@ -193,33 +209,33 @@
 
     .wacana-text.done {
       text-decoration: line-through;
-      opacity: 0.5;
+      opacity: 0.4;
     }
 
     .badge {
-      font-size: 13px;
+      font-size: 12px;
       padding: 4px 12px;
       border-radius: 20px;
-      margin-left: 10px;
+      margin-left: 8px;
       font-weight: 500;
     }
 
     .badge.pending {
-      background: rgba(255, 193, 7, 0.15);
+      background: rgba(255, 193, 7, 0.12);
       color: #ffc107;
-      border: 1px solid rgba(255, 193, 7, 0.3);
+      border: 1px solid rgba(255, 193, 7, 0.25);
     }
 
     .badge.completed {
-      background: rgba(40, 167, 69, 0.15);
+      background: rgba(40, 167, 69, 0.12);
       color: #28a745;
-      border: 1px solid rgba(40, 167, 69, 0.3);
+      border: 1px solid rgba(40, 167, 69, 0.25);
     }
 
     .delete-btn {
       background: transparent;
       border: none;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.3);
       font-size: 18px;
       cursor: pointer;
       padding: 4px 8px;
@@ -236,19 +252,20 @@
       opacity: 0.5;
       padding: 30px 0;
       font-style: italic;
+      font-size: 15px;
     }
 
     input[type=checkbox] {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       accent-color: #E8B4B8;
       cursor: pointer;
     }
 
     .progress {
-      margin-top: 32px;
-      height: 12px;
-      background: #243447;
+      margin-top: 28px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       overflow: hidden;
     }
@@ -256,40 +273,41 @@
     .bar {
       height: 100%;
       width: 0%;
-      background: #E8B4B8;
+      background: linear-gradient(90deg, #E8B4B8, #f0c4c8);
       transition: width 0.4s ease;
     }
 
     .percent-text {
-      margin-top: 12px;
+      margin-top: 10px;
       font-weight: 500;
-      opacity: 0.9;
+      opacity: 0.85;
+      font-size: 14px;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
     }
 
     .photo-slot {
       position: relative;
-      height: 220px;
+      height: 200px;
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px dashed rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(255, 255, 255, 0.18);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 40px;
+      font-size: 36px;
       cursor: pointer;
       overflow: hidden;
-      transition: border-color 0.2s ease, background 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .photo-slot:hover {
       border-color: #E8B4B8;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .photo-slot img {
@@ -310,39 +328,52 @@
     }
 
     .places li {
-      margin: 18px 0;
-      font-size: 19px;
+      margin: 16px 0;
+      font-size: 18px;
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
     .places .subtext {
-      font-size: 14px;
-      opacity: 0.6;
-      margin-left: 6px;
+      font-size: 13px;
+      opacity: 0.55;
+      margin-left: 4px;
       font-weight: 300;
     }
 
     footer {
-      padding: 60px 20px;
+      padding: 50px 20px;
       text-align: center;
-      opacity: 0.6;
-      font-size: 14px;
+      opacity: 0.5;
+      font-size: 13px;
     }
 
+    /* Penyesuaian khusus layar HP (iPhone & Android) */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 42px;
-      }
-      section {
-        padding: 80px 6%;
-      }
       header {
-        padding: 18px 6%;
+        padding: 16px 5%;
+        justify-content: center;
       }
       nav {
         display: none;
+      }
+      .hero h1 {
+        font-size: 40px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+      section {
+        padding: 70px 5%;
+      }
+      .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .card {
+        padding: 22px;
+        border-radius: 20px;
       }
       .wacana-input-group {
         flex-direction: column;
@@ -351,8 +382,7 @@
         width: 100%;
       }
       .places li {
-        font-size: 17px;
-        flex-wrap: wrap;
+        font-size: 16px;
       }
     }
   </style>
@@ -382,13 +412,11 @@
     <h2 class="title">📅 List Wacana Kita</h2>
     <div class="card">
       
-      <!-- Input Form buat nambah wacana baru -->
       <form class="wacana-input-group" id="wacana-form">
         <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required>
         <button type="submit">+ Tambah Wacana</button>
       </form>
 
-      <!-- Container List Wacana Kosong -->
       <div class="list" id="wacana-container"></div>
 
       <div class="progress">
@@ -441,7 +469,6 @@
   </footer>
 
   <script>
-    // Quotes Kasual & Playful
     const quotes = [
       "Every memory begins with a simple hello.",
       "Good conversations & great coffee.",
@@ -451,7 +478,6 @@
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-    // Manajemen List Wacana Dinamis
     let wacanaList = JSON.parse(localStorage.getItem("my_wacana_list")) || [];
 
     const form = document.getElementById("wacana-form");
@@ -532,7 +558,6 @@
 
     renderList();
 
-    // Image Upload Handlers
     function triggerUpload(index) {
       document.getElementById(`input-${index}`).click();
     }
