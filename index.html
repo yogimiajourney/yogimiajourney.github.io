@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Journey ❤️</title>
+  <title>Our Journey ✨</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -310,11 +310,18 @@
     }
 
     .places li {
-      margin: 16px 0;
-      font-size: 20px;
+      margin: 18px 0;
+      font-size: 19px;
       display: flex;
       align-items: center;
       gap: 12px;
+    }
+
+    .places .subtext {
+      font-size: 14px;
+      opacity: 0.6;
+      margin-left: 6px;
+      font-weight: 300;
     }
 
     footer {
@@ -343,6 +350,10 @@
       .wacana-input-group button {
         width: 100%;
       }
+      .places li {
+        font-size: 17px;
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
@@ -350,7 +361,7 @@
 <body>
 
   <header>
-    <div class="logo">❤️ Our Journey</div>
+    <div class="logo">✨ Our Journey</div>
     <nav>
       <a href="#home">Home</a>
       <a href="#bucket">List Wacana</a>
@@ -361,9 +372,9 @@
 
   <section class="hero" id="home">
     <div>
-      <h1>Yogi ❤️ Mia</h1>
+      <h1>Yogi ✨ Mia</h1>
       <p id="quote">Every memory begins with a simple hello.</p>
-      <a class="btn" href="#bucket">Buka List Wacana</a>
+      <a class="btn" href="#bucket">Lihat List Wacana</a>
     </div>
   </section>
 
@@ -373,7 +384,7 @@
       
       <!-- Input Form buat nambah wacana baru -->
       <form class="wacana-input-group" id="wacana-form">
-        <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana baru di sini..." required>
+        <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required>
         <button type="submit">+ Tambah Wacana</button>
       </form>
 
@@ -391,12 +402,14 @@
     <h2 class="title">📍 Dream Places</h2>
     <div class="card">
       <ul class="places">
+        <li>🏡 Pasar Sorkam, Sibolga <span class="subtext">(Kampung Mia)</span></li>
+        <li>🏡 Rengat, Indragiri Hulu <span class="subtext">(Kampung Yogi)</span></li>
+        <li>🌉 Batam</li>
+        <li>🇹🇭 Thailand</li>
         <li>🇯🇵 Jepang</li>
         <li>🇰🇷 Korea Selatan</li>
-        <li>🇸🇬 Singapura</li>
-        <li>🏝 Bali</li>
-        <li>🏔 Bromo</li>
-        <li>🌸 Kyoto</li>
+        <li>🏝️ Bali</li>
+        <li>🏔️ Bromo</li>
       </ul>
     </div>
   </section>
@@ -424,17 +437,17 @@
   </section>
 
   <footer>
-    Made with ❤️ by Yogi
+    Made with ✨ by Yogi
   </footer>
 
   <script>
-    // Quotes Random
+    // Quotes Kasual & Playful
     const quotes = [
       "Every memory begins with a simple hello.",
-      "The best adventures are together.",
-      "Home is wherever we're together.",
-      "Our story is just getting started.",
-      "Small moments become lifelong memories."
+      "Good conversations & great coffee.",
+      "Let's see where this story goes.",
+      "Collecting small moments, one hangout at a time.",
+      "The best adventures start with a spontaneous plan."
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
@@ -447,17 +460,15 @@
     const bar = document.getElementById("bar");
     const percent = document.getElementById("percent");
 
-    // Simpan ke LocalStorage
     function saveList() {
       localStorage.setItem("my_wacana_list", JSON.stringify(wacanaList));
     }
 
-    // Render ulang list ke layar
     function renderList() {
       container.innerHTML = "";
 
       if (wacanaList.length === 0) {
-        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Yuk tulis wacana pertama kalian di atas! ✨</div>`;
+        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Tulis ide jalan/nongkrong pertama kalian di atas! ✨</div>`;
         updateProgress();
         return;
       }
@@ -483,7 +494,6 @@
       updateProgress();
     }
 
-    // Tambah Wacana Baru
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const text = input.value.trim();
@@ -495,21 +505,18 @@
       }
     });
 
-    // Toggle Checkbox / Status Done
     function toggleDone(index) {
       wacanaList[index].done = !wacanaList[index].done;
       saveList();
       renderList();
     }
 
-    // Hapus Wacana
     function deleteWacana(index) {
       wacanaList.splice(index, 1);
       saveList();
       renderList();
     }
 
-    // Hitung & Update Progress Bar
     function updateProgress() {
       if (wacanaList.length === 0) {
         bar.style.width = "0%";
@@ -523,7 +530,6 @@
       percent.innerText = p + "% Terwujud (" + completed + "/" + wacanaList.length + ")";
     }
 
-    // Inisialisasi Tampilan
     renderList();
 
     // Image Upload Handlers
@@ -549,7 +555,6 @@
       reader.readAsDataURL(file);
     }
 
-    // Load saved images
     window.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < 4; i++) {
         const savedImg = localStorage.getItem(`gallery_image_${i}`);
