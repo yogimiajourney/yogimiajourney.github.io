@@ -1,140 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Journey ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Journey ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#0F172A;
+color:white;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(20px);
+background:rgba(15,23,42,.75);
+z-index:100;
+}
+
+.logo{
+font-family:Playfair Display;
+font-size:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+opacity:.8;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+background:
+
+radial-gradient(circle at top,#27374D,#0F172A);
+
+}
+
+.hero h1{
+
+font-size:65px;
+
+font-family:Playfair Display;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+opacity:.8;
+
+margin-bottom:35px;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:16px 35px;
+
+background:#E8B4B8;
+
+color:#111;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+
+}
+
+section{
+
+padding:100px 8%;
+
+}
+
+.title{
+
+font-size:40px;
+
+font-family:Playfair Display;
+
+margin-bottom:35px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.1);
+
+backdrop-filter:blur(20px);
+
+border-radius:20px;
+
+padding:25px;
+
+margin-bottom:20px;
+
+}
+
+.list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.list label{
+
+display:flex;
+
+gap:15px;
+
+font-size:18px;
+
+}
+
+input[type=checkbox]{
+
+width:22px;
+
+height:22px;
+
+accent-color:#E8B4B8;
+
+}
+
+.progress{
+
+margin-top:30px;
+
+height:12px;
+
+background:#243447;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.bar{
+
+height:100%;
+
+width:0%;
+
+background:#E8B4B8;
+
+transition:.4s;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.photo{
+
+height:220px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.08);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:60px;
+
+}
+
+.places li{
+
+margin:18px 0;
+
+font-size:20px;
+
+}
+
+footer{
+
+padding:60px;
+
+text-align:center;
+
+opacity:.6;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+header{
+
+padding:18px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+</style>
+
 </head>
-<body>
 
-<div class="background"></div>
+<body>
 
 <header>
 
-    <div class="logo">
-        ❤️ Our Journey
-    </div>
+<div class="logo">
 
-    <div id="greeting">
-        Good Evening
-    </div>
+❤️ Our Journey
+
+</div>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#bucket">Bucket List</a>
+
+<a href="#places">Places</a>
+
+<a href="#gallery">Gallery</a>
+
+</nav>
 
 </header>
 
-<main>
+<section class="hero" id="home">
 
-<section class="hero">
+<div>
 
 <h1>
-Yogi & Mia
+
+Yogi ❤️ Mia
+
 </h1>
 
-<p class="quote">
-"Every memory begins with a simple hello."
+<p id="quote">
+
+Every memory begins with a simple hello.
+
 </p>
+
+<a class="btn" href="#bucket">
+
+Open Our Story
+
+</a>
+
+</div>
 
 </section>
 
-<section class="card">
+<section id="bucket">
 
-<div class="card-title">
+<h2 class="title">
+
 📅 Bucket List
-</div>
 
-<div class="task">
-<label>
+</h2>
 
-<input type="checkbox">
+<div class="card">
 
-<span>Nonton Bioskop</span>
+<div class="list">
 
-</label>
-</div>
+<label><input type="checkbox">Nonton IMAX</label>
 
-<div class="task">
-<label>
+<label><input type="checkbox">Coffee Date</label>
 
-<input type="checkbox">
+<label><input type="checkbox">Aquarium Date</label>
 
-<span>Coffee Date</span>
+<label><input type="checkbox">Staycation</label>
 
-</label>
-</div>
+<label><input type="checkbox">Bowling</label>
 
-<div class="task">
-<label>
-
-<input type="checkbox">
-
-<span>Piknik</span>
-
-</label>
-</div>
-
-<div class="task">
-<label>
-
-<input type="checkbox">
-
-<span>Staycation</span>
-
-</label>
-</div>
-
-<div class="task">
-<label>
-
-<input type="checkbox">
-
-<span>Bowling</span>
-
-</label>
-</div>
-
-<div class="task">
-<label>
-
-<input type="checkbox">
-
-<span>Aquarium Date</span>
-
-</label>
-</div>
-
-<div class="progress-text">
-
-Progress
-
-<span id="percent">
-
-0%
-
-</span>
+<label><input type="checkbox">Piknik</label>
 
 </div>
 
 <div class="progress">
 
-<div class="progress-bar" id="progressBar"></div>
+<div class="bar" id="bar"></div>
+
+</div>
+
+<p id="percent" style="margin-top:15px">
+
+0%
+
+</p>
 
 </div>
 
 </section>
 
-<section class="card">
+<section id="places">
 
-<div class="card-title">
+<h2 class="title">
 
 📍 Dream Places
 
-</div>
+</h2>
+
+<div class="card">
 
 <ul class="places">
 
@@ -146,81 +392,113 @@ Progress
 
 <li>🏝 Bali</li>
 
-<li>🌸 Kyoto</li>
-
 <li>🏔 Bromo</li>
+
+<li>🌸 Kyoto</li>
 
 </ul>
 
+</div>
+
 </section>
 
-<section class="card">
+<section id="gallery">
 
-<div class="card-title">
+<h2 class="title">
 
-💌 Today's Message
+📸 Gallery
+
+</h2>
+
+<div class="gallery">
+
+<div class="photo">📷</div>
+
+<div class="photo">📷</div>
+
+<div class="photo">📷</div>
+
+<div class="photo">📷</div>
 
 </div>
 
-<p class="message">
-
-No matter how long the journey is...
-
-I'm happy if it's with you.
-
-❤️
-
-</p>
-
 </section>
+<footer>
 
-</main>
+Made with ❤️ by Yogi
 
-<nav class="bottom-nav">
+</footer>
 
-<a href="#" class="active">
+<script>
 
-🏠
+const quotes=[
 
-<span>Home</span>
+"Every memory begins with a simple hello.",
 
-</a>
+"The best adventures are together.",
 
-<a href="#">
+"Home is wherever we're together.",
 
-📅
+"Our story is just getting started.",
 
-<span>Plans</span>
+"Small moments become lifelong memories."
 
-</a>
+];
 
-<a href="#">
+document.getElementById("quote").innerHTML=
+quotes[Math.floor(Math.random()*quotes.length)];
 
-📍
+const checks=document.querySelectorAll("input[type='checkbox']");
 
-<span>Places</span>
+const bar=document.getElementById("bar");
 
-</a>
+const percent=document.getElementById("percent");
 
-<a href="#">
+checks.forEach((c,i)=>{
 
-📸
+const saved=localStorage.getItem("task"+i);
 
-<span>Gallery</span>
+if(saved==="true"){
 
-</a>
+c.checked=true;
 
-<a href="#">
+}
 
-💌
+c.addEventListener("change",()=>{
 
-<span>Letters</span>
+localStorage.setItem("task"+i,c.checked);
 
-</a>
+update();
 
-</nav>
+});
 
-<script src="script.js"></script>
+});
+
+function update(){
+
+let done=0;
+
+checks.forEach(c=>{
+
+if(c.checked){
+
+done++;
+
+}
+
+});
+
+let p=Math.round(done/checks.length*100);
+
+bar.style.width=p+"%";
+
+percent.innerHTML=p+"% Completed";
+
+}
+
+update();
+
+</script>
 
 </body>
 </html>
