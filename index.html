@@ -421,11 +421,11 @@
       
       <form class="wacana-input-group" id="wacana-form">
         <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required>
-        <button type="submit">+ Tambah Wacana</button>
+        <button type="submit" id="submit-btn">+ Tambah Wacana</button>
       </form>
 
       <div class="list" id="wacana-container">
-        <div class="empty-state">Belum ada wacana nih. Tulis ide jalan/nongkrong pertama kalian di atas! ✨</div>
+        <div class="empty-state">Menghubungkan ke database... ⏳</div>
       </div>
 
       <div class="progress">
@@ -478,24 +478,27 @@
   </footer>
 
   <!-- Firebase JavaScript SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase, ref, push, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
+  <script>
+    // Config Firebase Yogi (Database URL telah disesuaikan dengan screenshot)
     const firebaseConfig = {
       apiKey: "AIzaSyCmD4pyHzbDrW2i0Oj8y07pxF2KaTT0kCk",
       authDomain: "yogi-mia-journey.firebaseapp.com",
-      databaseURL: "https://yogi-mia-journey-default-rtdb.asia-southeast1.firebasedatabase.app",
+      databaseURL: "https://yogi-mia-journey-default-rtdb.firebaseio.com",
       projectId: "yogi-mia-journey",
       storageBucket: "yogi-mia-journey.firebasestorage.app",
       messagingSenderId: "329279007926",
       appId: "1:329279007926:web:1453665f5df71dbd090a17"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const wacanaRef = ref(db, 'wacana');
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const wacanaRef = db.ref('wacana');
 
+    // DOM Elements
     const form = document.getElementById("wacana-form");
     const input = document.getElementById("wacana-input");
     const container = document.getElementById("wacana-container");
@@ -503,11 +506,12 @@
     const percent = document.getElementById("percent");
 
     // Realtime Listener
-    onValue(wacanaRef, (snapshot) => {
+    wacanaRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
       renderList(data);
     }, (error) => {
       console.error("Firebase Error: ", error);
+      container.innerHTML = `<div class="empty-state" style="color: #ff6b6b;">Gagal terhubung: ${error.message}</div>`;
     });
 
     function renderList(dataObj) {
@@ -531,30 +535,16 @@
 
         itemEl.innerHTML = `
           <label class="wacana-label">
-            <input type="checkbox" ${item.done ? "checked" : ""} data-id="${key}" class="wacana-checkbox">
+            <input type="checkbox" ${item.done ? "checked" : ""} onchange="toggleWacana('${key}', this.checked)">
             <span class="wacana-text ${item.done ? "done" : ""}">${item.text}</span>
             <span class="badge ${item.done ? "completed" : "pending"}">
               ${item.done ? "Terwujud! 🎉" : "Masih Wacana 💭"}
             </span>
           </label>
-          <button class="delete-btn" data-id="${key}" title="Hapus wacana">✕</button>
+          <button class="delete-btn" onclick="deleteWacana('${key}')" title="Hapus wacana">✕</button>
         `;
 
         container.appendChild(itemEl);
-      });
-
-      document.querySelectorAll('.wacana-checkbox').forEach(cb => {
-        cb.addEventListener('change', (e) => {
-          const id = e.target.getAttribute('data-id');
-          update(ref(db, `wacana/${id}`), { done: e.target.checked });
-        });
-      });
-
-      document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const id = e.target.getAttribute('data-id');
-          remove(ref(db, `wacana/${id}`));
-        });
       });
 
       updateProgress(completedCount, keys.length);
@@ -564,14 +554,25 @@
       e.preventDefault();
       const text = input.value.trim();
       if (text) {
-        push(wacanaRef, {
+        wacanaRef.push({
           text: text,
           done: false,
           createdAt: Date.now()
+        }).then(() => {
+          input.value = "";
+        }).catch((err) => {
+          alert("Gagal menyimpan: " + err.message);
         });
-        input.value = "";
       }
     });
+
+    function toggleWacana(id, isDone) {
+      db.ref(`wacana/${id}`).update({ done: isDone });
+    }
+
+    function deleteWacana(id) {
+      db.ref(`wacana/${id}`).remove();
+    }
 
     function updateProgress(completed, total) {
       if (total === 0) {
@@ -584,9 +585,8 @@
       bar.style.width = p + "%";
       percent.innerText = p + "% Terwujud (" + completed + "/" + total + ")";
     }
-  </script>
 
-  <script>
+    // Quotes
     const quotes = [
       "Every memory begins with a simple hello.",
       "Good conversations & great coffee.",
@@ -596,11 +596,12 @@
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
-    window.triggerUpload = function(index) {
+    // Photo Upload
+    function triggerUpload(index) {
       document.getElementById(`input-${index}`).click();
-    };
+    }
 
-    window.handleImage = function(event, index) {
+    function handleImage(event, index) {
       const file = event.target.files[0];
       if (!file) return;
 
@@ -616,7 +617,7 @@
         localStorage.setItem(`gallery_image_${index}`, e.target.result);
       };
       reader.readAsDataURL(file);
-    };
+    }
 
     window.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < 4; i++) {
