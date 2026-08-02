@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Journey ✨</title>
+  <title>Our Journey ✨ Yogi & Mia</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -69,32 +69,81 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 100px 20px 60px;
-      background: radial-gradient(circle at 50% 30%, #1E293B 0%, #0F172A 80%);
+      padding: 120px 20px 60px;
+      background: radial-gradient(circle at 50% 30%, #2A1B2D 0%, #0F172A 85%);
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(232, 180, 184, 0.15);
+      border: 1px solid rgba(232, 180, 184, 0.4);
+      border-radius: 30px;
+      font-size: 14px;
+      color: #E8B4B8;
+      margin-bottom: 20px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
     }
 
     .hero h1 {
-      font-size: 60px;
+      font-size: 64px;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       line-height: 1.2;
       color: #FFFFFF !important;
-      text-shadow: 0 0 20px rgba(232, 180, 184, 0.3), 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 25px rgba(232, 180, 184, 0.4), 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
     .hero p {
-      font-size: 19px;
+      font-size: 18px;
       color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 36px;
+      margin-bottom: 28px;
       max-width: 550px;
       margin-left: auto;
       margin-right: auto;
       font-weight: 300;
+      font-style: italic;
+    }
+
+    /* Counter Box Romantis */
+    .timer-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(232, 180, 184, 0.25);
+      padding: 16px 28px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .timer-card .timer-title {
+      font-size: 13px;
+      color: #E8B4B8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .timer-card .timer-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
-      padding: 15px 36px;
+      padding: 14px 32px;
       background: #E8B4B8;
       color: #111111;
       border-radius: 50px;
@@ -102,12 +151,26 @@
       font-weight: 600;
       box-shadow: 0 10px 25px -5px rgba(232, 180, 184, 0.3);
       transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
     }
 
     .btn:hover {
       transform: translateY(-3px);
       background: #f0c4c8;
       box-shadow: 0 15px 30px -5px rgba(232, 180, 184, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     section {
@@ -378,6 +441,61 @@
       font-weight: 300;
     }
 
+    /* Modal Love Note */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #1E293B;
+      border: 1px solid rgba(232, 180, 184, 0.3);
+      border-radius: 24px;
+      padding: 36px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #E8B4B8;
+      margin-bottom: 16px;
+    }
+
+    .modal-card p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
     footer {
       padding: 50px 20px;
       text-align: center;
@@ -438,9 +556,20 @@
 
   <section class="hero" id="home">
     <div>
+      <div class="hero-badge">💖 Official Since 31 Juli 2026</div>
       <h1>Yogi ✨ Mia</h1>
       <p id="quote">Every memory begins with a simple hello.</p>
-      <a class="btn" href="#bucket">Lihat List Wacana</a>
+      
+      <!-- Counter Jadian -->
+      <div class="timer-card">
+        <div class="timer-title">Bersama Selama</div>
+        <div class="timer-text" id="relationship-timer">0 Hari 0 Jam 0 Menit</div>
+      </div>
+
+      <div class="btn-group">
+        <a class="btn" href="#bucket">Lihat List Wacana</a>
+        <button class="btn btn-secondary" onclick="openLoveModal()">Buka Pesan Rahasia 💌</button>
+      </div>
     </div>
   </section>
 
@@ -502,8 +631,19 @@
     </div>
   </section>
 
+  <!-- Love Note Modal -->
+  <div class="modal-overlay" id="loveModal" onclick="closeLoveModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <h3>Special Note for Mia 💌</h3>
+      <p>
+        "Terima kasih sudah memilih berjalan bersama sejak 31 Juli 2026. Website sederhana ini dibuat khusus untuk mencatat setiap tawa, tempat impian, dan wacana seru yang bakal kita wujudkan bareng. I'm so lucky to have you! ✨"
+      </p>
+      <button class="btn" onclick="closeLoveModal()">Tutup ❤️</button>
+    </div>
+  </div>
+
   <footer>
-    Made with ✨ by Yogi
+    Made with ❤️ by Yogi for Mia
   </footer>
 
   <!-- Firebase JavaScript SDK -->
@@ -535,7 +675,37 @@
     const bar = document.getElementById("bar");
     const percent = document.getElementById("percent");
 
-    // Fungsi Sanitasi Input untuk Mencegah XSS
+    // --- 0. RELATIONSHIP TIMER ---
+    const startDate = new Date('2026-07-31T00:00:00');
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      if (diff < 0) {
+        document.getElementById('relationship-timer').innerText = "Hari Spesial Segera Tiba! 🎉";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+
+      document.getElementById('relationship-timer').innerText = `${days} Hari ${hours} Jam ${minutes} Menit`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // --- MODAL FUNCTIONS ---
+    function openLoveModal() {
+      document.getElementById('loveModal').classList.add('active');
+    }
+
+    function closeLoveModal() {
+      document.getElementById('loveModal').classList.remove('active');
+    }
+
+    // Sanitasi Input
     function escapeHTML(str) {
       const div = document.createElement('div');
       div.innerText = str;
@@ -631,7 +801,6 @@
         const slot = document.getElementById(`slot-${i}`);
         const savedImg = galleryData[`image_${i}`];
 
-        // Bersihkan isi slot terlebih dahulu
         slot.innerHTML = `<span>📷</span>
           <input type="file" class="file-input" id="input-${i}" accept="image/*" onchange="handleImage(event, ${i})">`;
 
@@ -644,7 +813,7 @@
           removeBtn.innerHTML = '✕';
           removeBtn.title = 'Hapus foto';
           removeBtn.onclick = (e) => {
-            e.stopPropagation(); // Mencegah triggerUpload dipanggil
+            e.stopPropagation();
             removeImage(i);
           };
 
@@ -658,7 +827,6 @@
       document.getElementById(`input-${index}`).click();
     }
 
-    // Kompres Gambar sebelum disimpan ke Database agar cepat & hemat memori
     function compressImage(file, maxWidth, maxHeight, quality, callback) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -698,7 +866,6 @@
 
       const slot = document.getElementById(`slot-${index}`);
       
-      // Tampilkan indikator loading sederhana
       let loading = slot.querySelector('.photo-loading');
       if (!loading) {
         loading = document.createElement('div');
@@ -707,7 +874,6 @@
         slot.appendChild(loading);
       }
 
-      // Kompres ukuran foto (maksimal resolusi 800px, kualitas 0.7)
       compressImage(file, 800, 800, 0.7, function (base64Img) {
         db.ref(`gallery/image_${index}`).set(base64Img)
           .catch((err) => {
@@ -722,13 +888,12 @@
       }
     }
 
-    // Quotes
+    // Romantis Quotes
     const quotes = [
-      "Every memory begins with a simple hello.",
-      "Good conversations & great coffee.",
-      "Let's see where this story goes.",
-      "Collecting small moments, one hangout at a time.",
-      "The best adventures start with a spontaneous plan."
+      "Every love story is beautiful, but ours is my favorite.",
+      "Two homes, two hearts, one shared journey.",
+      "Collecting small moments, making memories for a lifetime.",
+      "You are my favorite notification & my happiest place."
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
   </script>
