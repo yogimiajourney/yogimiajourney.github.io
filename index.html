@@ -2,8 +2,13 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Journey ✨ Yogi & Mia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Our Journey 💖 Yogi & Mia</title>
+
+  <!-- iOS / iPhone Web App Capabilities (Optimasi buat iPhone Mia) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Our Journey">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +24,7 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0F172A;
       color: #FFFFFF;
       line-height: 1.6;
@@ -43,7 +48,7 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: #FFFFFF;
@@ -84,16 +89,15 @@
       color: #E8B4B8;
       margin-bottom: 20px;
       font-weight: 500;
-      letter-spacing: 0.5px;
     }
 
     .hero h1 {
-      font-size: 64px;
+      font-size: 60px;
       font-family: 'Playfair Display', serif;
       margin-bottom: 12px;
       line-height: 1.2;
       color: #FFFFFF !important;
-      text-shadow: 0 0 25px rgba(232, 180, 184, 0.4), 0 4px 12px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 0 25px rgba(232, 180, 184, 0.4);
     }
 
     .hero p {
@@ -107,7 +111,6 @@
       font-style: italic;
     }
 
-    /* Counter Box Romantis */
     .timer-card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(232, 180, 184, 0.25);
@@ -120,7 +123,7 @@
     }
 
     .timer-card .timer-title {
-      font-size: 13px;
+      font-size: 12px;
       color: #E8B4B8;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -156,10 +159,9 @@
       font-size: 15px;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
+    .btn:hover, .btn:active {
+      transform: translateY(-2px);
       background: #f0c4c8;
-      box-shadow: 0 15px 30px -5px rgba(232, 180, 184, 0.4);
     }
 
     .btn-secondary {
@@ -169,18 +171,14 @@
       box-shadow: none;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
     section {
-      padding: 90px 8%;
+      padding: 80px 8%;
     }
 
     .title {
-      font-size: 34px;
+      font-size: 32px;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       color: #FFFFFF;
     }
 
@@ -190,40 +188,40 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 24px;
-      padding: 32px;
+      padding: 30px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .wacana-input-group {
+    /* Input Forms Generic */
+    .input-group {
       display: flex;
       gap: 12px;
       margin-bottom: 24px;
     }
 
-    .wacana-input-group input[type="text"] {
+    .input-group input[type="text"] {
       flex: 1;
-      padding: 14px 22px;
+      padding: 14px 20px;
       border-radius: 50px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.08);
       color: #FFFFFF;
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       outline: none;
       transition: all 0.2s ease;
     }
 
-    .wacana-input-group input[type="text"]::placeholder {
+    .input-group input[type="text"]::placeholder {
       color: rgba(255, 255, 255, 0.5);
     }
 
-    .wacana-input-group input[type="text"]:focus {
+    .input-group input[type="text"]:focus {
       border-color: #E8B4B8;
       background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 15px rgba(232, 180, 184, 0.2);
     }
 
-    .wacana-input-group button {
+    .input-group button {
       padding: 14px 28px;
       border-radius: 50px;
       border: none;
@@ -233,12 +231,6 @@
       font-family: 'Poppins', sans-serif;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 15px rgba(232, 180, 184, 0.2);
-    }
-
-    .wacana-input-group button:hover {
-      transform: translateY(-2px);
-      background: #f0c4c8;
     }
 
     .list {
@@ -247,7 +239,7 @@
       gap: 12px;
     }
 
-    .wacana-item {
+    .item-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -258,20 +250,17 @@
       transition: all 0.2s ease;
     }
 
-    .wacana-item:hover {
+    .item-row:hover {
       background: rgba(255, 255, 255, 0.08);
-      transform: translateX(4px);
     }
 
     .wacana-label {
       display: flex;
       align-items: center;
       gap: 14px;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
-      user-select: none;
       flex: 1;
-      color: #FFFFFF;
     }
 
     .wacana-text.done {
@@ -280,8 +269,8 @@
     }
 
     .badge {
-      font-size: 12px;
-      padding: 4px 12px;
+      font-size: 11px;
+      padding: 4px 10px;
       border-radius: 20px;
       margin-left: 8px;
       font-weight: 500;
@@ -306,8 +295,6 @@
       font-size: 18px;
       cursor: pointer;
       padding: 4px 8px;
-      border-radius: 6px;
-      transition: color 0.2s ease;
     }
 
     .delete-btn:hover {
@@ -317,22 +304,21 @@
     .empty-state {
       text-align: center;
       opacity: 0.6;
-      padding: 30px 0;
+      padding: 24px 0;
       font-style: italic;
-      font-size: 15px;
-      color: #FFFFFF;
+      font-size: 14px;
     }
 
     input[type=checkbox] {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       accent-color: #E8B4B8;
       cursor: pointer;
     }
 
     .progress {
-      margin-top: 28px;
-      height: 10px;
+      margin-top: 24px;
+      height: 8px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       overflow: hidden;
@@ -346,40 +332,40 @@
     }
 
     .percent-text {
-      margin-top: 10px;
+      margin-top: 8px;
       font-weight: 500;
-      opacity: 0.9;
-      font-size: 14px;
-      color: #FFFFFF;
+      opacity: 0.8;
+      font-size: 13px;
     }
 
-    .gallery {
+    /* Galeri Grid Dynamic */
+    .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 16px;
     }
 
-    .photo-slot {
+    .photo-card {
       position: relative;
-      height: 200px;
+      height: 220px;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px dashed rgba(255, 255, 255, 0.2);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 36px;
       cursor: pointer;
       overflow: hidden;
       transition: all 0.2s ease;
     }
 
-    .photo-slot:hover {
+    .photo-card:hover {
       border-color: #E8B4B8;
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .photo-slot img {
+    .photo-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -392,53 +378,14 @@
       position: absolute;
       top: 8px;
       right: 8px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       color: #ffffff;
       border: none;
       width: 28px;
       height: 28px;
       border-radius: 50%;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
       z-index: 10;
-      transition: background 0.2s ease;
-    }
-
-    .photo-remove-btn:hover {
-      background: #ff4d4d;
-    }
-
-    .photo-loading {
-      position: absolute;
-      font-size: 14px;
-      color: #E8B4B8;
-    }
-
-    .file-input {
-      display: none;
-    }
-
-    .places {
-      list-style: none;
-    }
-
-    .places li {
-      margin: 16px 0;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #FFFFFF;
-    }
-
-    .places .subtext {
-      font-size: 13px;
-      opacity: 0.6;
-      margin-left: 4px;
-      font-weight: 300;
     }
 
     /* Modal Love Note */
@@ -469,75 +416,41 @@
       background: #1E293B;
       border: 1px solid rgba(232, 180, 184, 0.3);
       border-radius: 24px;
-      padding: 36px;
+      padding: 32px;
       max-width: 480px;
       width: 100%;
       text-align: center;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-    }
-
-    .modal-overlay.active .modal-card {
-      transform: translateY(0);
     }
 
     .modal-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 26px;
       color: #E8B4B8;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .modal-card p {
-      font-size: 15px;
+      font-size: 14px;
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 24px;
       line-height: 1.8;
     }
 
     footer {
-      padding: 50px 20px;
+      padding: 40px 20px;
       text-align: center;
       opacity: 0.6;
       font-size: 13px;
-      color: #FFFFFF;
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 16px 5%;
-        justify-content: center;
-      }
-      nav {
-        display: none;
-      }
-      .hero h1 {
-        font-size: 42px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
-      section {
-        padding: 70px 5%;
-      }
-      .title {
-        font-size: 28px;
-        margin-bottom: 20px;
-      }
-      .card {
-        padding: 22px;
-        border-radius: 20px;
-      }
-      .wacana-input-group {
-        flex-direction: column;
-      }
-      .wacana-input-group button {
-        width: 100%;
-      }
-      .places li {
-        font-size: 16px;
-      }
+      header { padding: 16px 5%; justify-content: center; }
+      nav { display: none; }
+      .hero h1 { font-size: 42px; }
+      section { padding: 60px 5%; }
+      .input-group { flex-direction: column; }
+      .input-group button { width: 100%; }
     }
   </style>
 </head>
@@ -545,11 +458,11 @@
 <body>
 
   <header>
-    <div class="logo">✨ Our Journey</div>
+    <div class="logo">💖 Our Journey</div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#bucket">List Wacana</a>
-      <a href="#places">Places</a>
+      <a href="#bucket">Wacana</a>
+      <a href="#places">Dream Places</a>
       <a href="#gallery">Gallery</a>
     </nav>
   </header>
@@ -557,10 +470,9 @@
   <section class="hero" id="home">
     <div>
       <div class="hero-badge">💖 Official Since 31 Juli 2026</div>
-      <h1>Yogi ✨ Mia</h1>
+      <h1>Yogi 💖 Mia</h1>
       <p id="quote">Every memory begins with a simple hello.</p>
       
-      <!-- Counter Jadian -->
       <div class="timer-card">
         <div class="timer-title">Bersama Selama</div>
         <div class="timer-text" id="relationship-timer">0 Hari 0 Jam 0 Menit</div>
@@ -573,13 +485,13 @@
     </div>
   </section>
 
+  <!-- SECTION WACANA -->
   <section id="bucket">
     <h2 class="title">📅 List Wacana Kita</h2>
     <div class="card">
-      
-      <form class="wacana-input-group" id="wacana-form">
+      <form class="input-group" id="wacana-form">
         <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required>
-        <button type="submit" id="submit-btn">+ Tambah Wacana</button>
+        <button type="submit">+ Tambah Wacana</button>
       </form>
 
       <div class="list" id="wacana-container">
@@ -593,40 +505,33 @@
     </div>
   </section>
 
+  <!-- SECTION DREAM PLACES (DATABASE UPDATEABLE) -->
   <section id="places">
     <h2 class="title">📍 Dream Places</h2>
     <div class="card">
-      <ul class="places">
-        <li>🏡 Pasar Sorkam, Sibolga <span class="subtext">(Kampung Mia)</span></li>
-        <li>🏡 Rengat, Indragiri Hulu <span class="subtext">(Kampung Yogi)</span></li>
-        <li>🌉 Batam</li>
-        <li>🇹🇭 Thailand</li>
-        <li>🇯🇵 Jepang</li>
-        <li>🇰🇷 Korea Selatan</li>
-        <li>🏝️ Bali</li>
-        <li>🏔️ Bromo</li>
-      </ul>
+      <form class="input-group" id="place-form">
+        <input type="text" id="place-title-input" placeholder="Nama tempat (Misal: Jepang)..." required style="flex: 2;">
+        <input type="text" id="place-sub-input" placeholder="Catatan/Ket (Misal: Musim Sakura)..." style="flex: 1;">
+        <button type="submit">+ Tambah Tempat</button>
+      </form>
+
+      <div class="list" id="places-container">
+        <div class="empty-state">Memuat daftar tempat impian... ⏳</div>
+      </div>
     </div>
   </section>
 
+  <!-- SECTION GALERI (DATABASE DYNAMIC) -->
   <section id="gallery">
-    <h2 class="title">📸 Gallery</h2>
-    <div class="gallery">
-      <div class="photo-slot" onclick="triggerUpload(0)" id="slot-0">
-        <span>📷</span>
-        <input type="file" class="file-input" id="input-0" accept="image/*" onchange="handleImage(event, 0)">
+    <h2 class="title">📸 Photo Gallery</h2>
+    <div class="card">
+      <div class="input-group" style="margin-bottom: 20px;">
+        <input type="file" id="upload-file-input" accept="image/*" style="display: none;" onchange="uploadPhoto(event)">
+        <button type="button" onclick="document.getElementById('upload-file-input').click()" style="width: 100%;">+ Unggah Foto Baru 📷</button>
       </div>
-      <div class="photo-slot" onclick="triggerUpload(1)" id="slot-1">
-        <span>📷</span>
-        <input type="file" class="file-input" id="input-1" accept="image/*" onchange="handleImage(event, 1)">
-      </div>
-      <div class="photo-slot" onclick="triggerUpload(2)" id="slot-2">
-        <span>📷</span>
-        <input type="file" class="file-input" id="input-2" accept="image/*" onchange="handleImage(event, 2)">
-      </div>
-      <div class="photo-slot" onclick="triggerUpload(3)" id="slot-3">
-        <span>📷</span>
-        <input type="file" class="file-input" id="input-3" accept="image/*" onchange="handleImage(event, 3)">
+      
+      <div class="gallery-grid" id="gallery-container">
+        <div class="empty-state">Memuat galeri foto... ⏳</div>
       </div>
     </div>
   </section>
@@ -636,14 +541,14 @@
     <div class="modal-card" onclick="event.stopPropagation()">
       <h3>Special Note for Mia 💌</h3>
       <p>
-        "Terima kasih sudah memilih berjalan bersama sejak 31 Juli 2026. Website sederhana ini dibuat khusus untuk mencatat setiap tawa, tempat impian, dan wacana seru yang bakal kita wujudkan bareng. I'm so lucky to have you! ✨"
+        "Terima kasih sudah memilih berjalan bersama sejak 31 Juli 2026. Website ini dibuat khusus untuk mencatat setiap tawa, tempat impian, dan wacana seru yang bakal kita wujudkan bareng. Love you! 💖"
       </p>
-      <button class="btn" onclick="closeLoveModal()">Tutup ❤️</button>
+      <button class="btn" onclick="closeLoveModal()">Tutup 💖</button>
     </div>
   </div>
 
   <footer>
-    Made with ❤️ by Yogi for Mia
+    Made with 💖 by Yogi for Mia
   </footer>
 
   <!-- Firebase JavaScript SDK -->
@@ -651,7 +556,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // Config Firebase Yogi
     const firebaseConfig = {
       apiKey: "AIzaSyCmD4pyHzbDrW2i0Oj8y07pxF2KaTT0kCk",
       authDomain: "yogi-mia-journey.firebaseapp.com",
@@ -662,241 +566,204 @@
       appId: "1:329279007926:web:1453665f5df71dbd090a17"
     };
 
-    // Inisialisasi Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
+    
+    // Database References
     const wacanaRef = db.ref('wacana');
+    const placesRef = db.ref('places');
     const galleryRef = db.ref('gallery');
 
-    // DOM Elements
-    const form = document.getElementById("wacana-form");
-    const input = document.getElementById("wacana-input");
-    const container = document.getElementById("wacana-container");
-    const bar = document.getElementById("bar");
-    const percent = document.getElementById("percent");
-
-    // --- 0. RELATIONSHIP TIMER ---
-    const startDate = new Date('2026-07-31T00:00:00');
-
-    function updateTimer() {
-      const now = new Date();
-      const diff = now - startDate;
-
-      if (diff < 0) {
-        document.getElementById('relationship-timer').innerText = "Hari Spesial Segera Tiba! 🎉";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-
-      document.getElementById('relationship-timer').innerText = `${days} Hari ${hours} Jam ${minutes} Menit`;
-    }
-    setInterval(updateTimer, 1000);
-    updateTimer();
-
-    // --- MODAL FUNCTIONS ---
-    function openLoveModal() {
-      document.getElementById('loveModal').classList.add('active');
-    }
-
-    function closeLoveModal() {
-      document.getElementById('loveModal').classList.remove('active');
-    }
-
-    // Sanitasi Input
     function escapeHTML(str) {
+      if(!str) return "";
       const div = document.createElement('div');
       div.innerText = str;
       return div.innerHTML;
     }
 
-    // --- 1. REALTIME LISTENER WACANA ---
+    // --- 1. RELATIONSHIP COUNTER ---
+    const startDate = new Date('2026-07-31T00:00:00');
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+      if (diff < 0) {
+        document.getElementById('relationship-timer').innerText = "Hari Spesial Segera Tiba! 🎉";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      document.getElementById('relationship-timer').innerText = `${days} Hari ${hours} Jam ${minutes} Menit`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // --- 2. MODAL LOVE NOTE ---
+    function openLoveModal() { document.getElementById('loveModal').classList.add('active'); }
+    function closeLoveModal() { document.getElementById('loveModal').classList.remove('active'); }
+
+    // --- 3. REALTIME WACANA ---
     wacanaRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
-      renderList(data);
-    }, (error) => {
-      console.error("Firebase Error: ", error);
-      container.innerHTML = `<div class="empty-state" style="color: #ff6b6b;">Gagal terhubung: ${error.message}</div>`;
-    });
-
-    function renderList(dataObj) {
+      const container = document.getElementById("wacana-container");
       container.innerHTML = "";
-      const keys = Object.keys(dataObj);
+      const keys = Object.keys(data);
 
       if (keys.length === 0) {
-        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Tulis ide jalan/nongkrong pertama kalian di atas! ✨</div>`;
+        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Tulis rencana pertama kalian! ✨</div>`;
         updateProgress(0, 0);
         return;
       }
 
-      let completedCount = 0;
-
+      let completed = 0;
       keys.forEach((key) => {
-        const item = dataObj[key];
-        if (item.done) completedCount++;
+        const item = data[key];
+        if (item.done) completed++;
 
-        const itemEl = document.createElement("div");
-        itemEl.className = "wacana-item";
-        const safeText = escapeHTML(item.text);
-
-        itemEl.innerHTML = `
+        const row = document.createElement("div");
+        row.className = "item-row";
+        row.innerHTML = `
           <label class="wacana-label">
             <input type="checkbox" ${item.done ? "checked" : ""} onchange="toggleWacana('${key}', this.checked)">
-            <span class="wacana-text ${item.done ? "done" : ""}">${safeText}</span>
-            <span class="badge ${item.done ? "completed" : "pending"}">
-              ${item.done ? "Terwujud! 🎉" : "Masih Wacana 💭"}
-            </span>
+            <span class="wacana-text ${item.done ? "done" : ""}">${escapeHTML(item.text)}</span>
+            <span class="badge ${item.done ? "completed" : "pending"}">${item.done ? "Terwujud! 🎉" : "Wacana 💭"}</span>
           </label>
-          <button class="delete-btn" onclick="deleteWacana('${key}')" title="Hapus wacana">✕</button>
+          <button class="delete-btn" onclick="deleteWacana('${key}')">✕</button>
         `;
-
-        container.appendChild(itemEl);
+        container.appendChild(row);
       });
+      updateProgress(completed, keys.length);
+    });
 
-      updateProgress(completedCount, keys.length);
-    }
-
-    form.addEventListener("submit", (e) => {
+    document.getElementById("wacana-form").addEventListener("submit", (e) => {
       e.preventDefault();
-      const text = input.value.trim();
-      if (text) {
-        wacanaRef.push({
-          text: text,
-          done: false,
-          createdAt: Date.now()
-        }).then(() => {
-          input.value = "";
-        }).catch((err) => {
-          alert("Gagal menyimpan: " + err.message);
-        });
+      const input = document.getElementById("wacana-input");
+      if (input.value.trim()) {
+        wacanaRef.push({ text: input.value.trim(), done: false, createdAt: Date.now() });
+        input.value = "";
       }
     });
 
-    function toggleWacana(id, isDone) {
-      db.ref(`wacana/${id}`).update({ done: isDone });
-    }
-
-    function deleteWacana(id) {
-      db.ref(`wacana/${id}`).remove();
-    }
+    function toggleWacana(id, status) { db.ref(`wacana/${id}`).update({ done: status }); }
+    function deleteWacana(id) { db.ref(`wacana/${id}`).remove(); }
 
     function updateProgress(completed, total) {
-      if (total === 0) {
-        bar.style.width = "0%";
-        percent.innerText = "0% Terwujud";
+      const bar = document.getElementById("bar");
+      const percent = document.getElementById("percent");
+      if (total === 0) { bar.style.width = "0%"; percent.innerText = "0% Terwujud"; return; }
+      const p = Math.round((completed / total) * 100);
+      bar.style.width = p + "%";
+      percent.innerText = `${p}% Terwujud (${completed}/${total})`;
+    }
+
+    // --- 4. REALTIME DREAM PLACES ---
+    placesRef.on('value', (snapshot) => {
+      const data = snapshot.val() || {};
+      const container = document.getElementById("places-container");
+      container.innerHTML = "";
+      const keys = Object.keys(data);
+
+      if (keys.length === 0) {
+        container.innerHTML = `<div class="empty-state">Belum ada tujuan wisata. Tambahkan sekarang! ✈️</div>`;
         return;
       }
 
-      const p = Math.round((completed / total) * 100);
-      bar.style.width = p + "%";
-      percent.innerText = p + "% Terwujud (" + completed + "/" + total + ")";
-    }
+      keys.forEach((key) => {
+        const item = data[key];
+        const row = document.createElement("div");
+        row.className = "item-row";
+        row.innerHTML = `
+          <div>
+            <span style="font-weight: 500; font-size: 16px;">📍 ${escapeHTML(item.title)}</span>
+            ${item.sub ? `<span style="font-size: 12px; opacity: 0.6; margin-left: 8px;">(${escapeHTML(item.sub)})</span>` : ''}
+          </div>
+          <button class="delete-btn" onclick="deletePlace('${key}')">✕</button>
+        `;
+        container.appendChild(row);
+      });
+    });
 
-    // --- 2. REALTIME LISTENER GALERI FOTO ---
-    galleryRef.on('value', (snapshot) => {
-      const galleryData = snapshot.val() || {};
-      for (let i = 0; i < 4; i++) {
-        const slot = document.getElementById(`slot-${i}`);
-        const savedImg = galleryData[`image_${i}`];
-
-        slot.innerHTML = `<span>📷</span>
-          <input type="file" class="file-input" id="input-${i}" accept="image/*" onchange="handleImage(event, ${i})">`;
-
-        if (savedImg) {
-          const img = document.createElement('img');
-          img.src = savedImg;
-          
-          const removeBtn = document.createElement('button');
-          removeBtn.className = 'photo-remove-btn';
-          removeBtn.innerHTML = '✕';
-          removeBtn.title = 'Hapus foto';
-          removeBtn.onclick = (e) => {
-            e.stopPropagation();
-            removeImage(i);
-          };
-
-          slot.appendChild(img);
-          slot.appendChild(removeBtn);
-        }
+    document.getElementById("place-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const titleInput = document.getElementById("place-title-input");
+      const subInput = document.getElementById("place-sub-input");
+      if (titleInput.value.trim()) {
+        placesRef.push({
+          title: titleInput.value.trim(),
+          sub: subInput.value.trim(),
+          createdAt: Date.now()
+        });
+        titleInput.value = "";
+        subInput.value = "";
       }
     });
 
-    function triggerUpload(index) {
-      document.getElementById(`input-${index}`).click();
-    }
+    function deletePlace(id) { db.ref(`places/${id}`).remove(); }
 
-    function compressImage(file, maxWidth, maxHeight, quality, callback) {
+    // --- 5. REALTIME GALLERY (REAL DATABASE STORAGE) ---
+    galleryRef.on('value', (snapshot) => {
+      const data = snapshot.val() || {};
+      const container = document.getElementById("gallery-container");
+      container.innerHTML = "";
+      const keys = Object.keys(data);
+
+      if (keys.length === 0) {
+        container.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">Belum ada foto kenangan. Upload foto pertama kalian! 📸</div>`;
+        return;
+      }
+
+      keys.forEach((key) => {
+        const card = document.createElement("div");
+        card.className = "photo-card";
+        card.innerHTML = `
+          <img src="${data[key].url}" alt="Foto Kenangan">
+          <button class="photo-remove-btn" onclick="deletePhoto('${key}')">✕</button>
+        `;
+        container.appendChild(card);
+      });
+    });
+
+    function uploadPhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function (e) {
         const img = new Image();
         img.src = e.target.result;
         img.onload = function () {
-          let width = img.width;
-          let height = img.height;
-
-          if (width > height) {
-            if (width > maxWidth) {
-              height = Math.round((height * maxWidth) / width);
-              width = maxWidth;
-            }
-          } else {
-            if (height > maxHeight) {
-              width = Math.round((width * maxHeight) / height);
-              height = maxHeight;
-            }
-          }
-
+          // Kompresi Gambar
           const canvas = document.createElement('canvas');
+          let width = img.width, height = img.height;
+          const maxDim = 800;
+          if (width > height && width > maxDim) { height *= maxDim / width; width = maxDim; }
+          else if (height > maxDim) { width *= maxDim / height; height = maxDim; }
+
           canvas.width = width;
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, width, height);
 
-          callback(canvas.toDataURL('image/jpeg', quality));
+          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+          galleryRef.push({ url: compressedBase64, timestamp: Date.now() });
         };
       };
     }
 
-    function handleImage(event, index) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const slot = document.getElementById(`slot-${index}`);
-      
-      let loading = slot.querySelector('.photo-loading');
-      if (!loading) {
-        loading = document.createElement('div');
-        loading.className = 'photo-loading';
-        loading.innerText = 'Mengunggah... ⏳';
-        slot.appendChild(loading);
-      }
-
-      compressImage(file, 800, 800, 0.7, function (base64Img) {
-        db.ref(`gallery/image_${index}`).set(base64Img)
-          .catch((err) => {
-            alert("Gagal mengunggah gambar: " + err.message);
-          });
-      });
-    }
-
-    function removeImage(index) {
-      if (confirm("Apakah Anda yakin ingin menghapus foto ini?")) {
-        db.ref(`gallery/image_${index}`).remove();
+    function deletePhoto(id) {
+      if (confirm("Hapus foto ini dari galeri?")) {
+        db.ref(`gallery/${id}`).remove();
       }
     }
 
-    // Romantis Quotes
+    // Random Quotes
     const quotes = [
       "Every love story is beautiful, but ours is my favorite.",
       "Two homes, two hearts, one shared journey.",
-      "Collecting small moments, making memories for a lifetime.",
       "You are my favorite notification & my happiest place."
     ];
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
   </script>
-
 </body>
 </html>
