@@ -1,769 +1,857 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Our Journey 💖 Yogi & Mia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey 💖 Yogi & Mia</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-pink: #e8b4b8;
+            --accent-pink-glow: rgba(232, 180, 184, 0.3);
+            --accent-green: #34d399;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
 
-  <!-- iOS / iPhone Web App Capabilities (Optimasi buat iPhone Mia) -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Our Journey">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(232, 180, 184, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            padding-bottom: 50px;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      -webkit-tap-highlight-color: transparent;
-    }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
 
-    body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0F172A;
-      color: #FFFFFF;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 0;
+        }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(15, 23, 42, 0.85);
-      z-index: 100;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-pink);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #FFFFFF;
-    }
+        header p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
 
-    nav a {
-      color: #FFFFFF;
-      text-decoration: none;
-      margin-left: 24px;
-      opacity: 0.8;
-      font-size: 15px;
-      transition: all 0.2s ease;
-    }
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
 
-    nav a:hover {
-      opacity: 1;
-      color: #E8B4B8;
-    }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 20px 60px;
-      background: radial-gradient(circle at 50% 30%, #2A1B2D 0%, #0F172A 85%);
-      position: relative;
-    }
+        /* Form Inputs */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 18px;
-      background: rgba(232, 180, 184, 0.15);
-      border: 1px solid rgba(232, 180, 184, 0.4);
-      border-radius: 30px;
-      font-size: 14px;
-      color: #E8B4B8;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
+        .input-row {
+            display: flex;
+            gap: 8px;
+        }
 
-    .hero h1 {
-      font-size: 60px;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 12px;
-      line-height: 1.2;
-      color: #FFFFFF !important;
-      text-shadow: 0 0 25px rgba(232, 180, 184, 0.4);
-    }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
 
-    .hero p {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 28px;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
-      font-weight: 300;
-      font-style: italic;
-    }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 10px var(--accent-pink-glow);
+        }
 
-    .timer-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(232, 180, 184, 0.25);
-      padding: 16px 28px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 32px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
+        .btn {
+            background: var(--accent-pink);
+            color: #0f172a;
+            font-weight: 600;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
 
-    .timer-card .timer-title {
-      font-size: 12px;
-      color: #E8B4B8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
+        .btn:active {
+            transform: scale(0.97);
+        }
 
-    .timer-card .timer-text {
-      font-size: 18px;
-      font-weight: 600;
-      color: #FFFFFF;
-    }
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
 
-    .btn-group {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+        .filter-btn {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--card-border);
+            color: var(--text-sub);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: #E8B4B8;
-      color: #111111;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 10px 25px -5px rgba(232, 180, 184, 0.3);
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-    }
+        .filter-btn.active {
+            background: var(--accent-pink);
+            color: #0f172a;
+            font-weight: 600;
+            border-color: var(--accent-pink);
+        }
 
-    .btn:hover, .btn:active {
-      transform: translateY(-2px);
-      background: #f0c4c8;
-    }
+        /* WACANA SECTION */
+        .wacana-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: none;
-    }
+        .wacana-item {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-    section {
-      padding: 80px 8%;
-    }
+        .wacana-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .title {
-      font-size: 32px;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 24px;
-      color: #FFFFFF;
-    }
+        .wacana-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
+        .wacana-checkbox {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-pink);
+            cursor: pointer;
+        }
 
-    /* Input Forms Generic */
-    .input-group {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
+        .wacana-text {
+            font-size: 0.95rem;
+        }
 
-    .input-group input[type="text"] {
-      flex: 1;
-      padding: 14px 20px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      outline: none;
-      transition: all 0.2s ease;
-    }
+        .wacana-text.done {
+            text-decoration: line-through;
+            color: var(--text-sub);
+        }
 
-    .input-group input[type="text"]::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
+        .date-badge {
+            font-size: 0.75rem;
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--accent-green);
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-block;
+        }
 
-    .input-group input[type="text"]:focus {
-      border-color: #E8B4B8;
-      background: rgba(255, 255, 255, 0.12);
-    }
+        .wacana-date-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-top: 4px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.05);
+        }
 
-    .input-group button {
-      padding: 14px 28px;
-      border-radius: 50px;
-      border: none;
-      background: #E8B4B8;
-      color: #111111;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+        .wacana-date-picker input[type="date"] {
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            width: auto;
+        }
 
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+        /* DREAM PLACES SECTION */
+        .place-item {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-    .item-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.2s ease;
-    }
+        .place-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .item-row:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
+        .place-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .wacana-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 15px;
-      cursor: pointer;
-      flex: 1;
-    }
+        .place-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
 
-    .wacana-text.done {
-      text-decoration: line-through;
-      opacity: 0.4;
-    }
+        .btn-maps {
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+            padding: 5px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-    .badge {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-left: 8px;
-      font-weight: 500;
-    }
+        .btn-delete {
+            color: #f87171;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
 
-    .badge.pending {
-      background: rgba(255, 193, 7, 0.15);
-      color: #ffc107;
-      border: 1px solid rgba(255, 193, 7, 0.3);
-    }
+        /* GALERI FOTO SECTION */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
 
-    .badge.completed {
-      background: rgba(40, 167, 69, 0.15);
-      color: #28a745;
-      border: 1px solid rgba(40, 167, 69, 0.3);
-    }
+        .photo-card {
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            background: #1e293b;
+            border: 1px solid var(--card-border);
+        }
 
-    .delete-btn {
-      background: transparent;
-      border: none;
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 18px;
-      cursor: pointer;
-      padding: 4px 8px;
-    }
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
 
-    .delete-btn:hover {
-      color: #ff4d4d;
-    }
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
 
-    .empty-state {
-      text-align: center;
-      opacity: 0.6;
-      padding: 24px 0;
-      font-style: italic;
-      font-size: 14px;
-    }
+        .photo-badge-cat {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 6px;
+            color: var(--accent-pink);
+        }
 
-    input[type=checkbox] {
-      width: 18px;
-      height: 18px;
-      accent-color: #E8B4B8;
-      cursor: pointer;
-    }
+        /* MODAL / LIGHTBOX ZOOM FOTO */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .progress {
-      margin-top: 24px;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      overflow: hidden;
-    }
+        .modal.active {
+            display: flex;
+        }
 
-    .bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #E8B4B8, #f0c4c8);
-      transition: width 0.4s ease;
-    }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .percent-text {
-      margin-top: 8px;
-      font-weight: 500;
-      opacity: 0.8;
-      font-size: 13px;
-    }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 65vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
 
-    /* Galeri Grid Dynamic */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-    }
+        .modal-info {
+            text-align: center;
+            color: var(--text-main);
+        }
 
-    .photo-card {
-      position: relative;
-      height: 220px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
+        .modal-caption {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
 
-    .photo-card:hover {
-      border-color: #E8B4B8;
-      background: rgba(255, 255, 255, 0.08);
-    }
+        .modal-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
 
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text-main);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
 
-    .photo-remove-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(0, 0, 0, 0.7);
-      color: #ffffff;
-      border: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-    }
+        /* Custom File Input */
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
 
-    /* Modal Love Note */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      padding: 20px;
-    }
+        .file-input-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
 
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-card {
-      background: #1E293B;
-      border: 1px solid rgba(232, 180, 184, 0.3);
-      border-radius: 24px;
-      padding: 32px;
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      color: #E8B4B8;
-      margin-bottom: 14px;
-    }
-
-    .modal-card p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 24px;
-      line-height: 1.8;
-    }
-
-    footer {
-      padding: 40px 20px;
-      text-align: center;
-      opacity: 0.6;
-      font-size: 13px;
-    }
-
-    @media (max-width: 768px) {
-      header { padding: 16px 5%; justify-content: center; }
-      nav { display: none; }
-      .hero h1 { font-size: 42px; }
-      section { padding: 60px 5%; }
-      .input-group { flex-direction: column; }
-      .input-group button { width: 100%; }
-    }
-  </style>
+        .file-input-btn {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px dashed var(--accent-pink);
+            color: var(--accent-pink);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">💖 Our Journey</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#bucket">Wacana</a>
-      <a href="#places">Dream Places</a>
-      <a href="#gallery">Gallery</a>
-    </nav>
-  </header>
+    <div class="container">
+        <header>
+            <h1>Yogi & Mia</h1>
+            <p>Jurnal Wacana, Impian & Kenangan 💖</p>
+        </header>
 
-  <section class="hero" id="home">
-    <div>
-      <div class="hero-badge">💖 Official Since 31 Juli 2026</div>
-      <h1>Yogi 💖 Mia</h1>
-      <p id="quote">Every memory begins with a simple hello.</p>
-      
-      <div class="timer-card">
-        <div class="timer-title">Bersama Selama</div>
-        <div class="timer-text" id="relationship-timer">0 Hari 0 Jam 0 Menit</div>
-      </div>
+        <!-- SECTION 1: WACANA -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-solid fa-list-check"></i> Daftar Wacana
+            </div>
 
-      <div class="btn-group">
-        <a class="btn" href="#bucket">Lihat List Wacana</a>
-        <button class="btn btn-secondary" onclick="openLoveModal()">Buka Pesan Rahasia 💌</button>
-      </div>
+            <div class="input-group">
+                <div class="input-row">
+                    <input type="text" id="wacanaInput" placeholder="Tambah wacana baru...">
+                    <button class="btn" onclick="addWacana()"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Filter Status Wacana -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterWacana('all', this)">Semua</button>
+                <button class="filter-btn" onclick="filterWacana('pending', this)">Belum Terwujud</button>
+                <button class="filter-btn" onclick="filterWacana('done', this)">Sudah Terwujud 🚩</button>
+            </div>
+
+            <div class="wacana-list" id="wacanaList"></div>
+        </div>
+
+        <!-- SECTION 2: DREAM PLACES -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-solid fa-compass"></i> Tempat Impian
+            </div>
+
+            <div class="input-group">
+                <div class="input-row">
+                    <input type="text" id="placeInput" placeholder="Nama tempat impian...">
+                    <button class="btn" onclick="addPlace()"><i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div id="placeList"></div>
+        </div>
+
+        <!-- SECTION 3: GALERI FOTO -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-solid fa-images"></i> Galeri Kenangan
+            </div>
+
+            <!-- Input Unggah Foto -->
+            <div class="input-group">
+                <div class="file-input-wrapper">
+                    <div class="file-input-btn" id="fileLabel">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Pilih Foto
+                    </div>
+                    <input type="file" id="photoInput" accept="image/*" onchange="updateFileName()">
+                </div>
+                
+                <input type="text" id="photoCaption" placeholder="Catatan/Caption foto (Opsional)">
+                
+                <div class="input-row">
+                    <select id="photoCategory">
+                        <option value="Berdua">👩‍❤️‍👨 Berdua</option>
+                        <option value="Kuliner">🍕 Kuliner</option>
+                        <option value="Jalan-Jalan">✈️ Jalan-Jalan</option>
+                        <option value="Random">✨ Random</option>
+                    </select>
+                    <input type="date" id="photoDate" title="Tanggal Foto (Opsional)">
+                </div>
+
+                <button class="btn" onclick="uploadPhoto()"><i class="fa-solid fa-upload"></i> Simpan Foto</button>
+            </div>
+
+            <!-- Filter Kategori Foto -->
+            <div class="filter-container" id="photoFilterContainer">
+                <!-- Diisi otomatis oleh JS -->
+            </div>
+
+            <!-- Grid Thumbnail Foto -->
+            <div class="photo-grid" id="photoGrid"></div>
+        </div>
     </div>
-  </section>
 
-  <!-- SECTION WACANA -->
-  <section id="bucket">
-    <h2 class="title">📅 List Wacana Kita</h2>
-    <div class="card">
-      <form class="input-group" id="wacana-form">
-        <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required>
-        <button type="submit">+ Tambah Wacana</button>
-      </form>
-
-      <div class="list" id="wacana-container">
-        <div class="empty-state">Menghubungkan ke database... ⏳</div>
-      </div>
-
-      <div class="progress">
-        <div class="bar" id="bar"></div>
-      </div>
-      <p class="percent-text" id="percent">0% Terwujud</p>
+    <!-- MODAL ZOOM FOTO -->
+    <div class="modal" id="photoModal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img id="modalImg" src="" alt="Zoom Foto">
+            <div class="modal-info">
+                <div class="modal-caption" id="modalCaption"></div>
+                <div class="modal-meta" id="modalMeta"></div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- SECTION DREAM PLACES (DATABASE UPDATEABLE) -->
-  <section id="places">
-    <h2 class="title">📍 Dream Places</h2>
-    <div class="card">
-      <form class="input-group" id="place-form">
-        <input type="text" id="place-title-input" placeholder="Nama tempat (Misal: Jepang)..." required style="flex: 2;">
-        <input type="text" id="place-sub-input" placeholder="Catatan/Ket (Misal: Musim Sakura)..." style="flex: 1;">
-        <button type="submit">+ Tambah Tempat</button>
-      </form>
+    <script>
+        // --- DATA STORE ---
+        let wacanas = JSON.parse(localStorage.getItem('ym_wacanas')) || [];
+        let places = JSON.parse(localStorage.getItem('ym_places')) || [];
+        let photos = JSON.parse(localStorage.getItem('ym_photos')) || [];
 
-      <div class="list" id="places-container">
-        <div class="empty-state">Memuat daftar tempat impian... ⏳</div>
-      </div>
-    </div>
-  </section>
+        let currentWacanaFilter = 'all';
+        let currentPhotoCategory = 'Semua';
 
-  <!-- SECTION GALERI (DATABASE DYNAMIC) -->
-  <section id="gallery">
-    <h2 class="title">📸 Photo Gallery</h2>
-    <div class="card">
-      <div class="input-group" style="margin-bottom: 20px;">
-        <input type="file" id="upload-file-input" accept="image/*" style="display: none;" onchange="uploadPhoto(event)">
-        <button type="button" onclick="document.getElementById('upload-file-input').click()" style="width: 100%;">+ Unggah Foto Baru 📷</button>
-      </div>
-      
-      <div class="gallery-grid" id="gallery-container">
-        <div class="empty-state">Memuat galeri foto... ⏳</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Love Note Modal -->
-  <div class="modal-overlay" id="loveModal" onclick="closeLoveModal()">
-    <div class="modal-card" onclick="event.stopPropagation()">
-      <h3>Special Note for Mia 💌</h3>
-      <p>
-        "Terima kasih sudah memilih berjalan bersama sejak 31 Juli 2026. Website ini dibuat khusus untuk mencatat setiap tawa, tempat impian, dan wacana seru yang bakal kita wujudkan bareng. Love you! 💖"
-      </p>
-      <button class="btn" onclick="closeLoveModal()">Tutup 💖</button>
-    </div>
-  </div>
-
-  <footer>
-    Made with 💖 by Yogi for Mia
-  </footer>
-
-  <!-- Firebase JavaScript SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCmD4pyHzbDrW2i0Oj8y07pxF2KaTT0kCk",
-      authDomain: "yogi-mia-journey.firebaseapp.com",
-      databaseURL: "https://yogi-mia-journey-default-rtdb.firebaseio.com",
-      projectId: "yogi-mia-journey",
-      storageBucket: "yogi-mia-journey.firebasestorage.app",
-      messagingSenderId: "329279007926",
-      appId: "1:329279007926:web:1453665f5df71dbd090a17"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    
-    // Database References
-    const wacanaRef = db.ref('wacana');
-    const placesRef = db.ref('places');
-    const galleryRef = db.ref('gallery');
-
-    function escapeHTML(str) {
-      if(!str) return "";
-      const div = document.createElement('div');
-      div.innerText = str;
-      return div.innerHTML;
-    }
-
-    // --- 1. RELATIONSHIP COUNTER ---
-    const startDate = new Date('2026-07-31T00:00:00');
-    function updateTimer() {
-      const now = new Date();
-      const diff = now - startDate;
-      if (diff < 0) {
-        document.getElementById('relationship-timer').innerText = "Hari Spesial Segera Tiba! 🎉";
-        return;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      document.getElementById('relationship-timer').innerText = `${days} Hari ${hours} Jam ${minutes} Menit`;
-    }
-    setInterval(updateTimer, 1000);
-    updateTimer();
-
-    // --- 2. MODAL LOVE NOTE ---
-    function openLoveModal() { document.getElementById('loveModal').classList.add('active'); }
-    function closeLoveModal() { document.getElementById('loveModal').classList.remove('active'); }
-
-    // --- 3. REALTIME WACANA ---
-    wacanaRef.on('value', (snapshot) => {
-      const data = snapshot.val() || {};
-      const container = document.getElementById("wacana-container");
-      container.innerHTML = "";
-      const keys = Object.keys(data);
-
-      if (keys.length === 0) {
-        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Tulis rencana pertama kalian! ✨</div>`;
-        updateProgress(0, 0);
-        return;
-      }
-
-      let completed = 0;
-      keys.forEach((key) => {
-        const item = data[key];
-        if (item.done) completed++;
-
-        const row = document.createElement("div");
-        row.className = "item-row";
-        row.innerHTML = `
-          <label class="wacana-label">
-            <input type="checkbox" ${item.done ? "checked" : ""} onchange="toggleWacana('${key}', this.checked)">
-            <span class="wacana-text ${item.done ? "done" : ""}">${escapeHTML(item.text)}</span>
-            <span class="badge ${item.done ? "completed" : "pending"}">${item.done ? "Terwujud! 🎉" : "Wacana 💭"}</span>
-          </label>
-          <button class="delete-btn" onclick="deleteWacana('${key}')">✕</button>
-        `;
-        container.appendChild(row);
-      });
-      updateProgress(completed, keys.length);
-    });
-
-    document.getElementById("wacana-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const input = document.getElementById("wacana-input");
-      if (input.value.trim()) {
-        wacanaRef.push({ text: input.value.trim(), done: false, createdAt: Date.now() });
-        input.value = "";
-      }
-    });
-
-    function toggleWacana(id, status) { db.ref(`wacana/${id}`).update({ done: status }); }
-    function deleteWacana(id) { db.ref(`wacana/${id}`).remove(); }
-
-    function updateProgress(completed, total) {
-      const bar = document.getElementById("bar");
-      const percent = document.getElementById("percent");
-      if (total === 0) { bar.style.width = "0%"; percent.innerText = "0% Terwujud"; return; }
-      const p = Math.round((completed / total) * 100);
-      bar.style.width = p + "%";
-      percent.innerText = `${p}% Terwujud (${completed}/${total})`;
-    }
-
-    // --- 4. REALTIME DREAM PLACES ---
-    placesRef.on('value', (snapshot) => {
-      const data = snapshot.val() || {};
-      const container = document.getElementById("places-container");
-      container.innerHTML = "";
-      const keys = Object.keys(data);
-
-      if (keys.length === 0) {
-        container.innerHTML = `<div class="empty-state">Belum ada tujuan wisata. Tambahkan sekarang! ✈️</div>`;
-        return;
-      }
-
-      keys.forEach((key) => {
-        const item = data[key];
-        const row = document.createElement("div");
-        row.className = "item-row";
-        row.innerHTML = `
-          <div>
-            <span style="font-weight: 500; font-size: 16px;">📍 ${escapeHTML(item.title)}</span>
-            ${item.sub ? `<span style="font-size: 12px; opacity: 0.6; margin-left: 8px;">(${escapeHTML(item.sub)})</span>` : ''}
-          </div>
-          <button class="delete-btn" onclick="deletePlace('${key}')">✕</button>
-        `;
-        container.appendChild(row);
-      });
-    });
-
-    document.getElementById("place-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const titleInput = document.getElementById("place-title-input");
-      const subInput = document.getElementById("place-sub-input");
-      if (titleInput.value.trim()) {
-        placesRef.push({
-          title: titleInput.value.trim(),
-          sub: subInput.value.trim(),
-          createdAt: Date.now()
-        });
-        titleInput.value = "";
-        subInput.value = "";
-      }
-    });
-
-    function deletePlace(id) { db.ref(`places/${id}`).remove(); }
-
-    // --- 5. REALTIME GALLERY (REAL DATABASE STORAGE) ---
-    galleryRef.on('value', (snapshot) => {
-      const data = snapshot.val() || {};
-      const container = document.getElementById("gallery-container");
-      container.innerHTML = "";
-      const keys = Object.keys(data);
-
-      if (keys.length === 0) {
-        container.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">Belum ada foto kenangan. Upload foto pertama kalian! 📸</div>`;
-        return;
-      }
-
-      keys.forEach((key) => {
-        const card = document.createElement("div");
-        card.className = "photo-card";
-        card.innerHTML = `
-          <img src="${data[key].url}" alt="Foto Kenangan">
-          <button class="photo-remove-btn" onclick="deletePhoto('${key}')">✕</button>
-        `;
-        container.appendChild(card);
-      });
-    });
-
-    function uploadPhoto(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function (e) {
-        const img = new Image();
-        img.src = e.target.result;
-        img.onload = function () {
-          // Kompresi Gambar
-          const canvas = document.createElement('canvas');
-          let width = img.width, height = img.height;
-          const maxDim = 800;
-          if (width > height && width > maxDim) { height *= maxDim / width; width = maxDim; }
-          else if (height > maxDim) { width *= maxDim / height; height = maxDim; }
-
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-
-          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
-          galleryRef.push({ url: compressedBase64, timestamp: Date.now() });
+        // --- INIT ---
+        window.onload = () => {
+            renderWacana();
+            renderPlaces();
+            renderPhotoFilters();
+            renderPhotos();
         };
-      };
-    }
 
-    function deletePhoto(id) {
-      if (confirm("Hapus foto ini dari galeri?")) {
-        db.ref(`gallery/${id}`).remove();
-      }
-    }
+        // --- 1. LOGIK WACANA ---
+        function addWacana() {
+            const input = document.getElementById('wacanaInput');
+            if (!input.value.trim()) return;
 
-    // Random Quotes
-    const quotes = [
-      "Every love story is beautiful, but ours is my favorite.",
-      "Two homes, two hearts, one shared journey.",
-      "You are my favorite notification & my happiest place."
-    ];
-    document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
-  </script>
+            wacanas.push({
+                id: Date.now(),
+                text: input.value.trim(),
+                done: false,
+                dateDone: ''
+            });
+
+            input.value = '';
+            saveWacana();
+        }
+
+        function toggleWacana(id) {
+            const item = wacanas.find(w => w.id === id);
+            if (item) {
+                item.done = !item.done;
+                if (!item.done) item.dateDone = ''; // Reset tanggal jika uncheck
+                saveWacana();
+            }
+        }
+
+        function updateWacanaDate(id, dateVal) {
+            const item = wacanas.find(w => w.id === id);
+            if (item) {
+                item.dateDone = dateVal;
+                saveWacana();
+            }
+        }
+
+        function deleteWacana(id) {
+            wacanas = wacanas.filter(w => w.id !== id);
+            saveWacana();
+        }
+
+        function filterWacana(filter, btn) {
+            currentWacanaFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                if (b.parentElement.id !== 'photoFilterContainer') b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            renderWacana();
+        }
+
+        function saveWacana() {
+            localStorage.setItem('ym_wacanas', JSON.stringify(wacanas));
+            renderWacana();
+        }
+
+        function renderWacana() {
+            const list = document.getElementById('wacanaList');
+            list.innerHTML = '';
+
+            let filtered = wacanas;
+            if (currentWacanaFilter === 'pending') filtered = wacanas.filter(w => !w.done);
+            if (currentWacanaFilter === 'done') filtered = wacanas.filter(w => w.done);
+
+            filtered.forEach(w => {
+                const el = document.createElement('div');
+                el.className = 'wacana-item';
+                
+                let datePickerHTML = '';
+                if (w.done) {
+                    datePickerHTML = `
+                        <div class="wacana-date-picker">
+                            <span>📅 Terwujud pada:</span>
+                            <input type="date" value="${w.dateDone || ''}" onchange="updateWacanaDate(${w.id}, this.value)">
+                        </div>
+                    `;
+                }
+
+                el.innerHTML = `
+                    <div class="wacana-main">
+                        <div class="wacana-left">
+                            <input type="checkbox" class="wacana-checkbox" ${w.done ? 'checked' : ''} onchange="toggleWacana(${w.id})">
+                            <span class="wacana-text ${w.done ? 'done' : ''}">${w.text}</span>
+                        </div>
+                        <button class="btn-delete" onclick="deleteWacana(${w.id})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    ${datePickerHTML}
+                `;
+                list.appendChild(el);
+            });
+        }
+
+        // --- 2. LOGIK DREAM PLACES ---
+        function addPlace() {
+            const input = document.getElementById('placeInput');
+            if (!input.value.trim()) return;
+
+            places.push({
+                id: Date.now(),
+                name: input.value.trim(),
+                visited: false,
+                dateVisited: ''
+            });
+
+            input.value = '';
+            savePlaces();
+        }
+
+        function togglePlaceVisited(id) {
+            const item = places.find(p => p.id === id);
+            if (item) {
+                item.visited = !item.visited;
+                if (!item.visited) item.dateVisited = '';
+                savePlaces();
+            }
+        }
+
+        function updatePlaceDate(id, dateVal) {
+            const item = places.find(p => p.id === id);
+            if (item) {
+                item.dateVisited = dateVal;
+                savePlaces();
+            }
+        }
+
+        function deletePlace(id) {
+            places = places.filter(p => p.id !== id);
+            savePlaces();
+        }
+
+        function savePlaces() {
+            localStorage.setItem('ym_places', JSON.stringify(places));
+            renderPlaces();
+        }
+
+        function renderPlaces() {
+            const list = document.getElementById('placeList');
+            list.innerHTML = '';
+
+            places.forEach(p => {
+                const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name)}`;
+                const el = document.createElement('div');
+                el.className = 'place-item';
+
+                let visitedDateHTML = '';
+                if (p.visited) {
+                    visitedDateHTML = `
+                        <div class="wacana-date-picker">
+                            <span>🚩 Dikunjungi pada:</span>
+                            <input type="date" value="${p.dateVisited || ''}" onchange="updatePlaceDate(${p.id}, this.value)">
+                        </div>
+                    `;
+                }
+
+                el.innerHTML = `
+                    <div class="place-header">
+                        <div class="place-title">
+                            <input type="checkbox" class="wacana-checkbox" ${p.visited ? 'checked' : ''} onchange="togglePlaceVisited(${p.id})">
+                            <span class="${p.visited ? 'done' : ''}">${p.name}</span>
+                        </div>
+                        <div class="place-actions">
+                            <a href="${mapsUrl}" target="_blank" class="btn-maps"><i class="fa-solid fa-location-dot"></i> Maps</a>
+                            <button class="btn-delete" onclick="deletePlace(${p.id})"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    ${visitedDateHTML}
+                `;
+                list.appendChild(el);
+            });
+        }
+
+        // --- 3. LOGIK GALERI FOTO (THUMBNAIL OPTIMIZED) ---
+        function updateFileName() {
+            const fileInput = document.getElementById('photoInput');
+            const fileLabel = document.getElementById('fileLabel');
+            if (fileInput.files.length > 0) {
+                fileLabel.innerHTML = `<i class="fa-solid fa-check"></i> ${fileInput.files[0].name}`;
+            }
+        }
+
+        // Fungsi Kompresi Foto (Trik Thumbnail Kecil Bebas Lag)
+        function compressImage(file, maxWidth, quality, callback) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > maxWidth) {
+                        height = Math.round((height * maxWidth) / width);
+                        width = maxWidth;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    callback(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function uploadPhoto() {
+            const fileInput = document.getElementById('photoInput');
+            const captionInput = document.getElementById('photoCaption');
+            const categoryInput = document.getElementById('photoCategory');
+            const dateInput = document.getElementById('photoDate');
+
+            if (fileInput.files.length === 0) {
+                alert('Pilih foto terlebih dahulu ya!');
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            // 1. Buat versi Thumbnail Kecil (Lebar 300px) untuk Grid
+            compressImage(file, 300, 0.6, (thumbDataUrl) => {
+                // 2. Buat versi Full/Zoom (Lebar 1000px) untuk Modal
+                compressImage(file, 1000, 0.8, (fullDataUrl) => {
+                    photos.push({
+                        id: Date.now(),
+                        thumbSrc: thumbDataUrl,
+                        fullSrc: fullDataUrl,
+                        caption: captionInput.value.trim(),
+                        category: categoryInput.value,
+                        date: dateInput.value || ''
+                    });
+
+                    // Reset Input
+                    fileInput.value = '';
+                    captionInput.value = '';
+                    dateInput.value = '';
+                    document.getElementById('fileLabel').innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> Pilih Foto`;
+
+                    savePhotos();
+                });
+            });
+        }
+
+        function deletePhoto(id) {
+            photos = photos.filter(p => p.id !== id);
+            savePhotos();
+            closeModal();
+        }
+
+        function savePhotos() {
+            try {
+                localStorage.setItem('ym_photos', JSON.stringify(photos));
+            } catch (e) {
+                alert('Memori HP penuh! Coba hapus beberapa foto lama ya.');
+            }
+            renderPhotoFilters();
+            renderPhotos();
+        }
+
+        function renderPhotoFilters() {
+            const container = document.getElementById('photoFilterContainer');
+            const categories = ['Semua', 'Berdua', 'Kuliner', 'Jalan-Jalan', 'Random'];
+
+            container.innerHTML = categories.map(cat => {
+                const count = cat === 'Semua' ? photos.length : photos.filter(p => p.category === cat).length;
+                const activeClass = currentPhotoCategory === cat ? 'active' : '';
+                return `<button class="filter-btn ${activeClass}" onclick="filterPhotoCat('${cat}')">${cat} (${count})</button>`;
+            }).join('');
+        }
+
+        function filterPhotoCat(cat) {
+            currentPhotoCategory = cat;
+            renderPhotoFilters();
+            renderPhotos();
+        }
+
+        function renderPhotos() {
+            const grid = document.getElementById('photoGrid');
+            grid.innerHTML = '';
+
+            let filtered = photos;
+            if (currentPhotoCategory !== 'Semua') {
+                filtered = photos.filter(p => p.category === currentPhotoCategory);
+            }
+
+            filtered.forEach(p => {
+                const el = document.createElement('div');
+                el.className = 'photo-card';
+                el.onclick = () => openModal(p);
+
+                el.innerHTML = `
+                    <span class="photo-badge-cat">${p.category}</span>
+                    <img src="${p.thumbSrc}" alt="Thumbnail" loading="lazy">
+                `;
+                grid.appendChild(el);
+            });
+        }
+
+        // --- 4. LIGHTBOX ZOOM MODAL ---
+        function openModal(photo) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            const modalMeta = document.getElementById('modalMeta');
+
+            modalImg.src = photo.fullSrc; // Muat gambar versi jelas
+            modalCaption.innerText = photo.caption || 'Tanpa catatan';
+            
+            let dateText = photo.date ? `📅 ${photo.date}` : '';
+            modalMeta.innerHTML = `
+                ${dateText} | Kategori: <b>${photo.category}</b>
+                <br><br>
+                <button class="btn-delete" style="font-size: 0.9rem;" onclick="deletePhoto(${photo.id})">
+                    <i class="fa-solid fa-trash"></i> Hapus Foto Ini
+                </button>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
