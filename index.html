@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -76,7 +76,6 @@
       text-align: center;
       padding: 120px 20px 60px;
       background: radial-gradient(circle at 50% 30%, #2A1B2D 0%, #0F172A 85%);
-      position: relative;
     }
 
     .hero-badge {
@@ -92,7 +91,7 @@
     }
 
     .hero h1 {
-      font-size: 60px;
+      font-size: 56px;
       font-family: 'Playfair Display', serif;
       margin-bottom: 12px;
       line-height: 1.2;
@@ -107,7 +106,6 @@
       max-width: 550px;
       margin-left: auto;
       margin-right: auto;
-      font-weight: 300;
       font-style: italic;
     }
 
@@ -192,7 +190,7 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* Input Forms */
+    /* Forms */
     .input-group {
       display: flex;
       gap: 12px;
@@ -268,36 +266,11 @@
       flex: 1;
     }
 
-    .wacana-text.done {
-      text-decoration: line-through;
-      opacity: 0.4;
-    }
-
     .date-tag {
       font-size: 12px;
       color: #E8B4B8;
-      opacity: 0.8;
+      opacity: 0.9;
       margin-left: 6px;
-    }
-
-    .badge {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-left: 8px;
-      font-weight: 500;
-    }
-
-    .badge.pending {
-      background: rgba(255, 193, 7, 0.15);
-      color: #ffc107;
-      border: 1px solid rgba(255, 193, 7, 0.3);
-    }
-
-    .badge.completed {
-      background: rgba(40, 167, 69, 0.15);
-      color: #28a745;
-      border: 1px solid rgba(40, 167, 69, 0.3);
     }
 
     .action-btn {
@@ -310,9 +283,7 @@
       text-decoration: none;
     }
 
-    .action-btn:hover {
-      color: #E8B4B8;
-    }
+    .action-btn:hover { color: #E8B4B8; }
 
     .delete-btn {
       background: transparent;
@@ -323,14 +294,12 @@
       padding: 4px 8px;
     }
 
-    .delete-btn:hover {
-      color: #ff4d4d;
-    }
+    .delete-btn:hover { color: #ff4d4d; }
 
     .empty-state {
       text-align: center;
       opacity: 0.6;
-      padding: 24px 0;
+      padding: 20px 0;
       font-style: italic;
       font-size: 14px;
     }
@@ -391,13 +360,13 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 16px;
     }
 
     .photo-card {
       position: relative;
-      height: 220px;
+      height: 200px;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -421,17 +390,22 @@
       position: absolute;
       bottom: 8px;
       left: 8px;
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.75);
       padding: 3px 10px;
       border-radius: 12px;
       font-size: 11px;
       backdrop-filter: blur(5px);
     }
 
-    .photo-remove-btn {
+    .photo-actions {
       position: absolute;
       top: 8px;
       right: 8px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .photo-btn {
       background: rgba(0, 0, 0, 0.7);
       color: #ffffff;
       border: none;
@@ -439,10 +413,13 @@
       height: 28px;
       border-radius: 50%;
       cursor: pointer;
-      z-index: 10;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Modal Love Note & Lightbox */
+    /* Modal Styling */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -470,25 +447,21 @@
       background: #1E293B;
       border: 1px solid rgba(232, 180, 184, 0.3);
       border-radius: 24px;
-      padding: 32px;
+      padding: 28px;
       max-width: 480px;
       width: 100%;
       text-align: center;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .modal-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 26px;
+      font-size: 24px;
       color: #E8B4B8;
       margin-bottom: 14px;
-    }
-
-    .modal-card p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 24px;
-      line-height: 1.8;
     }
 
     .lightbox-img {
@@ -509,7 +482,7 @@
     @media (max-width: 768px) {
       header { padding: 16px 5%; justify-content: center; }
       nav { display: none; }
-      .hero h1 { font-size: 42px; }
+      .hero h1 { font-size: 40px; }
       section { padding: 60px 5%; }
       .input-group { flex-direction: column; }
       .input-group button, .input-group input, .input-group select { width: 100%; }
@@ -553,11 +526,11 @@
     <h2 class="title">📅 List Wacana Kita</h2>
     <div class="card">
       <form class="input-group" id="wacana-form">
-        <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required style="flex: 2;">
-        <input type="date" id="wacana-date-input" style="flex: 1;">
+        <input type="text" id="wacana-input" placeholder="Tulis rencana/wacana seru di sini..." required style="flex: 1;">
         <button type="submit">+ Tambah Wacana</button>
       </form>
 
+      <!-- Hanya menampilkan Wacana Aktif (Pending) -->
       <div class="list" id="wacana-container">
         <div class="empty-state">Menghubungkan ke database... ⏳</div>
       </div>
@@ -566,6 +539,10 @@
         <div class="bar" id="bar"></div>
       </div>
       <p class="percent-text" id="percent">0% Terwujud</p>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-secondary" style="font-size: 13px; padding: 10px 24px;" onclick="openHistoryModal()">Lihat Wacana Terwujud 🎉</button>
+      </div>
     </div>
   </section>
 
@@ -610,21 +587,61 @@
       <div class="gallery-grid" id="gallery-container">
         <div class="empty-state" style="grid-column: 1/-1;">Memuat galeri foto... ⏳</div>
       </div>
+
+      <div id="load-more-container" style="text-align: center; margin-top: 20px; display: none;">
+        <button class="btn btn-secondary" style="font-size: 13px; padding: 10px 24px;" onclick="loadMorePhotos()">Tampilkan Lebih Banyak 📸</button>
+      </div>
     </div>
   </section>
 
-  <!-- Love Note Modal -->
+  <!-- MODAL LOVE NOTE -->
   <div class="modal-overlay" id="loveModal" onclick="closeLoveModal()">
     <div class="modal-card" onclick="event.stopPropagation()">
       <h3>Special Note for Mia 💌</h3>
-      <p>
+      <p style="font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.8;">
         "Terima kasih sudah memilih berjalan bersama sejak 31 Juli 2026. Website ini dibuat khusus untuk mencatat setiap tawa, tempat impian, dan wacana seru yang bakal kita wujudkan bareng. Love you! 💖"
       </p>
       <button class="btn" onclick="closeLoveModal()">Tutup 💖</button>
     </div>
   </div>
 
-  <!-- Lightbox Modal (Zoom Foto) -->
+  <!-- MODAL WACANA TERWUJUD (HISTORY) -->
+  <div class="modal-overlay" id="historyModal" onclick="closeHistoryModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <h3>Wacana Terwujud 🎉</h3>
+      <div class="list" id="history-container" style="overflow-y: auto; margin: 16px 0; text-align: left;">
+        <!-- Filled by JS -->
+      </div>
+      <button class="btn" onclick="closeHistoryModal()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- MODAL TANGGAL WACANA (POPOP SAAT CENTANG) -->
+  <div class="modal-overlay" id="dateModal" onclick="closeDateModal()">
+    <div class="modal-card" onclick="event.stopPropagation()" style="max-width: 360px;">
+      <h3>Kapan Terwujud? 🎉</h3>
+      <p style="font-size: 13px; opacity: 0.8; margin-bottom: 16px;">Pilih tanggal berhasilnya wacana ini:</p>
+      <input type="date" id="wacana-completed-date" style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; width: 100%; margin-bottom: 20px; font-family: 'Poppins', sans-serif;">
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="btn" onclick="saveWacanaCompletion()">Simpan & Pindahkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EDIT KATEGORI FOTO -->
+  <div class="modal-overlay" id="editCategoryModal" onclick="closeEditCategoryModal()">
+    <div class="modal-card" onclick="event.stopPropagation()" style="max-width: 360px;">
+      <h3>Edit Kategori Foto 🏷️</h3>
+      <select id="edit-category-select" style="padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #1E293B; color: #fff; width: 100%; margin: 20px 0; font-family: 'Poppins', sans-serif;">
+        <option value="Kencan">🌹 Kencan</option>
+        <option value="Liburan">✈️ Liburan</option>
+        <option value="Random">✨ Random</option>
+      </select>
+      <button class="btn" onclick="savePhotoCategory()">Simpan Kategori</button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL (ZOOM FOTO) -->
   <div class="modal-overlay" id="lightboxModal" onclick="closeLightbox()">
     <img id="lightboxImg" class="lightbox-img" src="" alt="Zoom Foto" onclick="event.stopPropagation()">
   </div>
@@ -651,13 +668,17 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     
-    // Database References
+    // References
     const wacanaRef = db.ref('wacana');
     const placesRef = db.ref('places');
     const galleryRef = db.ref('gallery');
 
+    // Global States
+    let pendingWacanaId = null;
+    let pendingPhotoId = null;
     let currentGalleryFilter = "Semua";
     let rawGalleryData = {};
+    let displayPhotoLimit = 12;
 
     function escapeHTML(str) {
       if(!str) return "";
@@ -683,69 +704,119 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // --- 2. MODALS ---
+    // --- 2. MODAL CONTROLLERS ---
     function openLoveModal() { document.getElementById('loveModal').classList.add('active'); }
     function closeLoveModal() { document.getElementById('loveModal').classList.remove('active'); }
+
+    function openHistoryModal() { document.getElementById('historyModal').classList.add('active'); }
+    function closeHistoryModal() { document.getElementById('historyModal').classList.remove('active'); }
+
+    function closeDateModal() { document.getElementById('dateModal').classList.remove('active'); pendingWacanaId = null; }
+
+    function openEditCategoryModal(photoId, currentCat) {
+      pendingPhotoId = photoId;
+      document.getElementById('edit-category-select').value = currentCat || 'Random';
+      document.getElementById('editCategoryModal').classList.add('active');
+    }
+    function closeEditCategoryModal() {
+      document.getElementById('editCategoryModal').classList.remove('active');
+      pendingPhotoId = null;
+    }
 
     function openLightbox(url) {
       document.getElementById('lightboxImg').src = url;
       document.getElementById('lightboxModal').classList.add('active');
     }
-    function closeLightbox() {
-      document.getElementById('lightboxModal').classList.remove('active');
-    }
+    function closeLightbox() { document.getElementById('lightboxModal').classList.remove('active'); }
 
-    // --- 3. REALTIME WACANA (+ TANGGAL) ---
+    // --- 3. REALTIME WACANA ---
     wacanaRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
-      const container = document.getElementById("wacana-container");
-      container.innerHTML = "";
+      const activeContainer = document.getElementById("wacana-container");
+      const historyContainer = document.getElementById("history-container");
+      
+      activeContainer.innerHTML = "";
+      historyContainer.innerHTML = "";
+
       const keys = Object.keys(data);
+      let totalCount = keys.length;
+      let completedCount = 0;
+      let activeCount = 0;
 
-      if (keys.length === 0) {
-        container.innerHTML = `<div class="empty-state">Belum ada wacana nih. Tulis rencana pertama kalian! ✨</div>`;
-        updateProgress(0, 0);
-        return;
-      }
-
-      let completed = 0;
       keys.forEach((key) => {
         const item = data[key];
-        if (item.done) completed++;
 
-        const row = document.createElement("div");
-        row.className = "item-row";
-        row.innerHTML = `
-          <label class="wacana-label">
-            <input type="checkbox" ${item.done ? "checked" : ""} onchange="toggleWacana('${key}', this.checked)">
-            <span class="wacana-text ${item.done ? "done" : ""}">${escapeHTML(item.text)}</span>
-            ${item.targetDate ? `<span class="date-tag">🗓️ ${item.targetDate}</span>` : ''}
-            <span class="badge ${item.done ? "completed" : "pending"}">${item.done ? "Terwujud! 🎉" : "Wacana 💭"}</span>
-          </label>
-          <button class="delete-btn" onclick="deleteWacana('${key}')">✕</button>
-        `;
-        container.appendChild(row);
+        if (item.done) {
+          completedCount++;
+          // Render ke Riwayat Modal
+          const row = document.createElement("div");
+          row.className = "item-row";
+          row.innerHTML = `
+            <div>
+              <span style="text-decoration: line-through; opacity: 0.6;">${escapeHTML(item.text)}</span>
+              <div class="date-tag">🎉 Terwujud: ${item.completedDate || 'Selesai'}</div>
+            </div>
+            <button class="delete-btn" onclick="deleteWacana('${key}')">✕</button>
+          `;
+          historyContainer.appendChild(row);
+        } else {
+          activeCount++;
+          // Render ke Daftar Utama (Pending)
+          const row = document.createElement("div");
+          row.className = "item-row";
+          row.innerHTML = `
+            <label class="wacana-label">
+              <input type="checkbox" onchange="triggerWacanaCompletion('${key}')">
+              <span>${escapeHTML(item.text)}</span>
+            </label>
+            <button class="delete-btn" onclick="deleteWacana('${key}')">✕</button>
+          `;
+          activeContainer.appendChild(row);
+        }
       });
-      updateProgress(completed, keys.length);
+
+      if (activeCount === 0) {
+        activeContainer.innerHTML = `<div class="empty-state">Tidak ada wacana aktif. Yuk tulis wacana seru baru! ✨</div>`;
+      }
+      if (completedCount === 0) {
+        historyContainer.innerHTML = `<div class="empty-state">Belum ada wacana yang selesai. Semangat mewujudkannya! 💖</div>`;
+      }
+
+      updateProgress(completedCount, totalCount);
     });
 
     document.getElementById("wacana-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const input = document.getElementById("wacana-input");
-      const dateInput = document.getElementById("wacana-date-input");
       if (input.value.trim()) {
         wacanaRef.push({ 
           text: input.value.trim(), 
-          targetDate: dateInput.value || null,
           done: false, 
           createdAt: Date.now() 
         });
         input.value = "";
-        dateInput.value = "";
       }
     });
 
-    function toggleWacana(id, status) { db.ref(`wacana/${id}`).update({ done: status }); }
+    function triggerWacanaCompletion(id) {
+      pendingWacanaId = id;
+      document.getElementById('wacana-completed-date').valueAsDate = new Date();
+      document.getElementById('dateModal').classList.add('active');
+    }
+
+    function saveWacanaCompletion() {
+      if (!pendingWacanaId) return;
+      const selectedDate = document.getElementById('wacana-completed-date').value;
+      const formattedDate = selectedDate ? new Date(selectedDate).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Hari Ini';
+
+      db.ref(`wacana/${pendingWacanaId}`).update({
+        done: true,
+        completedDate: formattedDate
+      });
+
+      closeDateModal();
+    }
+
     function deleteWacana(id) { db.ref(`wacana/${id}`).remove(); }
 
     function updateProgress(completed, total) {
@@ -757,7 +828,7 @@
       percent.innerText = `${p}% Terwujud (${completed}/${total})`;
     }
 
-    // --- 4. REALTIME DREAM PLACES (+ GOOGLE MAPS LINK) ---
+    // --- 4. REALTIME DREAM PLACES ---
     placesRef.on('value', (snapshot) => {
       const data = snapshot.val() || {};
       const container = document.getElementById("places-container");
@@ -776,7 +847,7 @@
         row.className = "item-row";
         row.innerHTML = `
           <div>
-            <span style="font-weight: 500; font-size: 16px;">📍 ${escapeHTML(item.title)}</span>
+            <span style="font-weight: 500; font-size: 15px;">📍 ${escapeHTML(item.title)}</span>
             ${item.sub ? `<span style="font-size: 12px; opacity: 0.6; margin-left: 8px;">(${escapeHTML(item.sub)})</span>` : ''}
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
@@ -805,7 +876,7 @@
 
     function deletePlace(id) { db.ref(`places/${id}`).remove(); }
 
-    // --- 5. REALTIME GALLERY (+ FILTER & LIGHTBOX) ---
+    // --- 5. REALTIME GALLERY (EDIT KATEGORI & PAGINATION & LAZY LOAD) ---
     galleryRef.on('value', (snapshot) => {
       rawGalleryData = snapshot.val() || {};
       renderGallery();
@@ -813,8 +884,10 @@
 
     function renderGallery() {
       const container = document.getElementById("gallery-container");
+      const loadMoreContainer = document.getElementById("load-more-container");
       container.innerHTML = "";
-      const keys = Object.keys(rawGalleryData);
+      
+      const keys = Object.keys(rawGalleryData).reverse(); // Terbaru di atas
 
       const filteredKeys = keys.filter(key => {
         if (currentGalleryFilter === "Semua") return true;
@@ -823,30 +896,56 @@
 
       if (filteredKeys.length === 0) {
         container.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">Belum ada foto di kategori ini. Upload yuk! 📸</div>`;
+        loadMoreContainer.style.display = "none";
         return;
       }
 
-      filteredKeys.forEach((key) => {
+      const visibleKeys = filteredKeys.slice(0, displayPhotoLimit);
+
+      visibleKeys.forEach((key) => {
         const item = rawGalleryData[key];
         const card = document.createElement("div");
         card.className = "photo-card";
         card.onclick = () => openLightbox(item.url);
         card.innerHTML = `
-          <img src="${item.url}" alt="Foto Kenangan">
+          <img src="${item.url}" alt="Foto Kenangan" loading="lazy">
           <span class="photo-category-badge">${item.category || "Random"}</span>
-          <button class="photo-remove-btn" onclick="event.stopPropagation(); deletePhoto('${key}')">✕</button>
+          <div class="photo-actions">
+            <button class="photo-btn" onclick="event.stopPropagation(); openEditCategoryModal('${key}', '${item.category || 'Random'}')" title="Edit Kategori">✏️</button>
+            <button class="photo-btn" onclick="event.stopPropagation(); deletePhoto('${key}')" title="Hapus Foto">✕</button>
+          </div>
         `;
         container.appendChild(card);
       });
+
+      if (filteredKeys.length > displayPhotoLimit) {
+        loadMoreContainer.style.display = "block";
+      } else {
+        loadMoreContainer.style.display = "none";
+      }
+    }
+
+    function loadMorePhotos() {
+      displayPhotoLimit += 12;
+      renderGallery();
     }
 
     function filterGallery(category, btnElem) {
       currentGalleryFilter = category;
+      displayPhotoLimit = 12; // Reset limit saat ganti filter
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btnElem.classList.add('active');
       renderGallery();
     }
 
+    function savePhotoCategory() {
+      if (!pendingPhotoId) return;
+      const newCat = document.getElementById('edit-category-select').value;
+      db.ref(`gallery/${pendingPhotoId}`).update({ category: newCat });
+      closeEditCategoryModal();
+    }
+
+    // Kompresi Otomatis ke WebP/JPEG Ringan
     function uploadPhoto(event) {
       const file = event.target.files[0];
       const category = document.getElementById('upload-category-select').value;
@@ -858,10 +957,9 @@
         const img = new Image();
         img.src = e.target.result;
         img.onload = function () {
-          // Kompresi Otomatis
           const canvas = document.createElement('canvas');
           let width = img.width, height = img.height;
-          const maxDim = 800;
+          const maxDim = 900; // Ukuran optimal untuk HP
           if (width > height && width > maxDim) { height *= maxDim / width; width = maxDim; }
           else if (height > maxDim) { width *= maxDim / height; height = maxDim; }
 
@@ -870,7 +968,12 @@
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, width, height);
 
-          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+          // Coba simpan sebagai image/webp, fallback ke jpeg jika browser lama
+          let compressedBase64 = canvas.toDataURL('image/webp', 0.75);
+          if(!compressedBase64.startsWith('data:image/webp')) {
+            compressedBase64 = canvas.toDataURL('image/jpeg', 0.75);
+          }
+
           galleryRef.push({ 
             url: compressedBase64, 
             category: category,
